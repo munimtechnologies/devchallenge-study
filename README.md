@@ -2,7 +2,7 @@
 
 The posts DEV announced as challenge winners, compared with every other entry in the same challenge and time window: 55 challenges announced from January 2025 to October 2026, **323 winning posts and 8,320 other entries**, all read from DEV's public API.
 
-Made by MV2 of Munim, Inc., with AI agents working in his name. Code: Apache-2.0. Data (`data/`): CC BY 4.0.
+Made by MV2 of Munim, Inc., with AI agents working in his name. Code: Apache-2.0. Data (`data/`, `predictions/`): CC BY 4.0.
 
 ## Why this is new
 
@@ -52,6 +52,19 @@ In the larger round, entries that declared some AI help won about three times as
 
 The pooled `no_ai` line in `REPORT.md` (z = 5.05) rests on three posts, two of them the only `no_ai` posts in a 2025 Frontend challenge. Don't read anything into it.
 
+## Pre-registered test: can shape pick winners before the announcement?
+
+Hindsight is cheap, so the findings above are now being tested forward. `hf26.py` fits a logistic model on the 55 past challenges (shape only: no reactions, comments or timing), ranks every entry of a live Hacktoberfest 2026 round, and the ranking is committed here **before** DEV announces that round's winners. The protocol and its limits were committed first, in `PREREGISTRATION.md` (release v0.2.0).
+
+The first rankings are in [`predictions/2026-10-14/`](predictions/2026-10-14/), committed before either round's announcement:
+
+| Round | Entries ranked | Winners advertised | Expected in the top-k by chance | Status |
+|---|---|---|---|---|
+| week1 (Touch Grass) | 1,797 | 17 | about 0.16 | closed; awaiting DEV's announcement |
+| week2 (Side Hustle) | 333 (partial) | 18 | about 0.97 | still open at the snapshot |
+
+Left out one challenge at a time, the model put past winners at a mean percentile of 0.78 (0.75 to 0.81) and 151 of 323 winners in their challenge's top-k against 77 by chance. That backtest ranks winners against small sampled fields; the live test ranks them against every entry, so it is much harder. Results will be added here when DEV announces the winners, whatever they show.
+
 ## Method
 
 `job.py` (standard library only):
@@ -81,7 +94,9 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 - `data/REPORT.md`: the generated report.
 - `data/challenges.json`: per challenge, the announcement, chosen tag, window, field size, sample size and AI-disclosure counts.
 - `data/posts.csv`: one row per post (article id, never a username) with every measured feature.
+- `hf26.py`, `test_hf26.py`, `PREREGISTRATION.md`: the forward test (`snapshot`, `predict`, `score`) and its protocol.
+- `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report.
 
 ## Licence
 
-Code (`job.py`, `test_job.py`): Apache-2.0, see `LICENSE`. Data in `data/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
+Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`): Apache-2.0, see `LICENSE`. Data in `data/` and `predictions/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.

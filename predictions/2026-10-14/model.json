@@ -1,0 +1,49 @@
+{
+  "features": [
+    "reading_time_pct",
+    "title_words_pct",
+    "n_tags_pct",
+    "words_pct",
+    "headings_pct",
+    "code_blocks_pct",
+    "images_pct",
+    "embeds_pct",
+    "title_has_number",
+    "title_has_colon",
+    "title_first_person",
+    "has_cover",
+    "ai_declared",
+    "has_video",
+    "has_github_embed",
+    "has_table"
+  ],
+  "bias": -5.0039,
+  "weights": {
+    "reading_time_pct": 1.0923,
+    "title_words_pct": 0.3759,
+    "n_tags_pct": 0.5858,
+    "words_pct": 1.6362,
+    "headings_pct": 0.2259,
+    "code_blocks_pct": -0.5071,
+    "images_pct": 0.8136,
+    "embeds_pct": 0.7082,
+    "title_has_number": 0.171,
+    "title_has_colon": -0.257,
+    "title_first_person": 0.3026,
+    "has_cover": 0.2966,
+    "ai_declared": 0.0568,
+    "has_video": 0.3626,
+    "has_github_embed": -0.1922,
+    "has_table": 0.8224
+  },
+  "l2": 1.0,
+  "train_challenges": 55,
+  "train_rows": 1893,
+  "train_winners": 323,
+  "not_used": [
+    "reactions_now",
+    "comments_now",
+    "published_ts"
+  ],
+  "fitted_at": "2026-10-14T17:32:22+00:00"
+}

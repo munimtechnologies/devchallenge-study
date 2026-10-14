@@ -1,0 +1,56 @@
+{
+  "snapshot_at": "2026-10-14T16:48:07+00:00",
+  "finished_at": "2026-10-14T17:32:21+00:00",
+  "tag": "hf26challenge",
+  "since": "2026-10-01",
+  "bodies_from": "2026-10-05T07:00:00Z",
+  "announcements_seen": {
+    "weekend": {
+      "announcement_id": 4825130,
+      "announced": "2026-10-09T19:32:27Z"
+    }
+  },
+  "rounds": {
+    "week2": {
+      "entries": 350,
+      "bodies": 350,
+      "ai_levels": {
+        "not_disclosed": 298,
+        "some_ai": 32,
+        "fully_autonomous": 16,
+        "no_ai": 4
+      }
+    },
+    "weekend": {
+      "entries": 1494,
+      "bodies": 101,
+      "ai_levels": {
+        "not_disclosed": 1216,
+        "some_ai": 224,
+        "fully_autonomous": 40,
+        "no_ai": 14
+      }
+    },
+    "week1": {
+      "entries": 1858,
+      "bodies": 1858,
+      "ai_levels": {
+        "not_disclosed": 1519,
+        "some_ai": 262,
+        "fully_autonomous": 65,
+        "no_ai": 12
+      }
+    },
+    "weekend+week1": {
+      "entries": 41,
+      "bodies": 41,
+      "ai_levels": {
+        "not_disclosed": 39,
+        "some_ai": 2
+      }
+    }
+  },
+  "posts": 3743,
+  "requests": 2356,
+  "minutes": 44.2
+}
