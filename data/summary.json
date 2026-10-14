@@ -1,0 +1,208 @@
+{
+  "continuous": {
+    "reading_time": {
+      "winners": 323,
+      "mean_percentile": 0.753,
+      "ci95": [
+        0.722,
+        0.785
+      ],
+      "share_above_middle": 0.845
+    },
+    "title_words": {
+      "winners": 323,
+      "mean_percentile": 0.598,
+      "ci95": [
+        0.566,
+        0.629
+      ],
+      "share_above_middle": 0.644
+    },
+    "n_tags": {
+      "winners": 323,
+      "mean_percentile": 0.545,
+      "ci95": [
+        0.514,
+        0.577
+      ],
+      "share_above_middle": 0.734
+    },
+    "published_ts": {
+      "winners": 323,
+      "mean_percentile": 0.491,
+      "ci95": [
+        0.459,
+        0.522
+      ],
+      "share_above_middle": 0.489
+    },
+    "reactions_now": {
+      "winners": 323,
+      "mean_percentile": 0.814,
+      "ci95": [
+        0.783,
+        0.846
+      ],
+      "share_above_middle": 0.904,
+      "note": "measured after the winners were announced"
+    },
+    "comments_now": {
+      "winners": 323,
+      "mean_percentile": 0.736,
+      "ci95": [
+        0.705,
+        0.768
+      ],
+      "share_above_middle": 0.7,
+      "note": "measured after the winners were announced"
+    },
+    "words": {
+      "winners": 323,
+      "mean_percentile": 0.776,
+      "ci95": [
+        0.744,
+        0.807
+      ],
+      "share_above_middle": 0.858
+    },
+    "headings": {
+      "winners": 323,
+      "mean_percentile": 0.673,
+      "ci95": [
+        0.642,
+        0.705
+      ],
+      "share_above_middle": 0.718
+    },
+    "code_blocks": {
+      "winners": 323,
+      "mean_percentile": 0.601,
+      "ci95": [
+        0.57,
+        0.633
+      ],
+      "share_above_middle": 0.514
+    },
+    "images": {
+      "winners": 323,
+      "mean_percentile": 0.663,
+      "ci95": [
+        0.631,
+        0.694
+      ],
+      "share_above_middle": 0.641
+    },
+    "embeds": {
+      "winners": 323,
+      "mean_percentile": 0.613,
+      "ci95": [
+        0.581,
+        0.644
+      ],
+      "share_above_middle": 0.498
+    }
+  },
+  "binary": {
+    "title_has_number": {
+      "winners": 323,
+      "winners_with": 86,
+      "expected_if_random": 57.65,
+      "winner_rate": 0.266,
+      "field_rate": 0.178,
+      "z": 4.76
+    },
+    "title_has_colon": {
+      "winners": 323,
+      "winners_with": 184,
+      "expected_if_random": 174.95,
+      "winner_rate": 0.57,
+      "field_rate": 0.542,
+      "z": 1.03
+    },
+    "title_first_person": {
+      "winners": 323,
+      "winners_with": 101,
+      "expected_if_random": 76.96,
+      "winner_rate": 0.313,
+      "field_rate": 0.238,
+      "z": 3.38
+    },
+    "has_cover": {
+      "winners": 323,
+      "winners_with": 258,
+      "expected_if_random": 197.38,
+      "winner_rate": 0.799,
+      "field_rate": 0.611,
+      "z": 7.08
+    },
+    "ai_declared": {
+      "winners": 78,
+      "winners_with": 9,
+      "expected_if_random": 4.48,
+      "winner_rate": 0.115,
+      "field_rate": 0.057,
+      "z": 2.35
+    },
+    "has_video": {
+      "winners": 323,
+      "winners_with": 134,
+      "expected_if_random": 68.41,
+      "winner_rate": 0.415,
+      "field_rate": 0.212,
+      "z": 9.68
+    },
+    "has_github_embed": {
+      "winners": 323,
+      "winners_with": 24,
+      "expected_if_random": 16.62,
+      "winner_rate": 0.074,
+      "field_rate": 0.051,
+      "z": 1.99
+    },
+    "has_table": {
+      "winners": 323,
+      "winners_with": 94,
+      "expected_if_random": 39.4,
+      "winner_rate": 0.291,
+      "field_rate": 0.122,
+      "z": 9.8
+    }
+  },
+  "ai_levels": {
+    "fully_autonomous": {
+      "winners": 78,
+      "winners_at_level": 0,
+      "expected_if_random": 0.75,
+      "z": -0.88
+    },
+    "no_ai": {
+      "winners": 78,
+      "winners_at_level": 3,
+      "expected_if_random": 0.29,
+      "z": 5.05
+    },
+    "not_disclosed": {
+      "winners": 78,
+      "winners_at_level": 66,
+      "expected_if_random": 73.23,
+      "z": -3.66
+    },
+    "some_ai": {
+      "winners": 78,
+      "winners_at_level": 9,
+      "expected_if_random": 3.72,
+      "z": 2.95
+    }
+  },
+  "challenges_with_disclosure_field": 7,
+  "meta": {
+    "generated": "2026-10-14T09:40:18+00:00",
+    "since": "2025-01-01",
+    "announcements": 60,
+    "challenges_used": 55,
+    "winners": 323,
+    "entries": 8320,
+    "requests": 2127,
+    "minutes": 68.7
+  }
+}

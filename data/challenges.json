@@ -1,0 +1,1068 @@
+[
+  {
+    "announcement_id": 2186281,
+    "title": "Congrats to the DevCycle Feature Flag Challenge Winners!",
+    "announced": "2025-01-02T19:27:18Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "devcyclechallenge",
+    "window": [
+      "2024-12-13T12:38:53+00:00",
+      "2024-12-25T07:58:13+00:00"
+    ],
+    "field": 18,
+    "bodies": 18,
+    "ai_levels": {
+      "not_disclosed": 21
+    }
+  },
+  {
+    "announcement_id": 2196436,
+    "title": "Congrats to the Frontend Challenge: December Edition Winners!",
+    "announced": "2025-01-09T15:48:51Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "frontendchallenge",
+    "window": [
+      "2024-12-03T15:51:17+00:00",
+      "2024-12-17T21:31:08+00:00"
+    ],
+    "field": 12,
+    "bodies": 12,
+    "ai_levels": {
+      "not_disclosed": 14
+    }
+  },
+  {
+    "announcement_id": 2197849,
+    "title": "Congrats to the Bright Data Web Scraping Challenge Winners!",
+    "announced": "2025-01-09T21:19:32Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "brightdatachallenge",
+    "window": [
+      "2024-12-26T18:40:11+00:00",
+      "2025-01-01T06:33:50+00:00"
+    ],
+    "field": 21,
+    "bodies": 21,
+    "ai_levels": {
+      "not_disclosed": 24
+    }
+  },
+  {
+    "announcement_id": 2236718,
+    "title": "Congrats to the GitHub Copilot 1-Day Build Challenge Winners!",
+    "announced": "2025-01-23T19:15:03Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "githubchallenge",
+    "window": [
+      "2025-01-17T23:05:50+00:00",
+      "2025-01-22T07:22:47+00:00"
+    ],
+    "field": 79,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 82
+    }
+  },
+  {
+    "announcement_id": 2249349,
+    "title": "Congrats to the Agent.ai Challenge Winners!",
+    "announced": "2025-01-30T16:36:37Z",
+    "status": "ok",
+    "links": 8,
+    "winners": 7,
+    "tag": "agentaichallenge",
+    "window": [
+      "2025-01-18T14:28:42+00:00",
+      "2025-01-29T07:51:07+00:00"
+    ],
+    "field": 125,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 132
+    }
+  },
+  {
+    "announcement_id": 2275913,
+    "title": "Congrats to the New Year Writing challenge Winners!",
+    "announced": "2025-02-13T15:37:14Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 4,
+    "tag": "future",
+    "window": [
+      "2024-12-31T04:15:44+00:00",
+      "2025-02-04T05:14:50+00:00"
+    ],
+    "field": 33,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 37
+    }
+  },
+  {
+    "announcement_id": 2314962,
+    "title": "Congrats to the Frontend Challenge: February Edition Winners!",
+    "announced": "2025-03-06T13:55:02Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "frontendchallenge",
+    "window": [
+      "2025-02-17T04:47:53+00:00",
+      "2025-02-28T17:02:50+00:00"
+    ],
+    "field": 25,
+    "bodies": 25,
+    "ai_levels": {
+      "not_disclosed": 28
+    }
+  },
+  {
+    "announcement_id": 2378824,
+    "title": "Congrats to the KendoReact Free Components Challenge Winners!",
+    "announced": "2025-04-03T19:01:39Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "kendoreactchallenge",
+    "window": [
+      "2025-03-21T01:40:17+00:00",
+      "2025-03-26T06:03:12+00:00"
+    ],
+    "field": 84,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 87
+    }
+  },
+  {
+    "announcement_id": 2411516,
+    "title": "Congrats to the Pulumi Deploy and Document Challenge Winners!",
+    "announced": "2025-04-17T14:27:51Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "pulumichallenge",
+    "window": [
+      "2025-04-04T16:02:50+00:00",
+      "2025-04-09T02:41:55+00:00"
+    ],
+    "field": 50,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 53
+    }
+  },
+  {
+    "announcement_id": 2414108,
+    "title": "Congrats to the winners of our first-ever WeCoded Challenge!",
+    "announced": "2025-04-17T20:15:50Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "wecoded",
+    "window": [
+      "2025-04-03T22:39:34+00:00",
+      "2025-04-08T06:16:39+00:00"
+    ],
+    "field": 24,
+    "bodies": 24,
+    "ai_levels": {
+      "not_disclosed": 26
+    }
+  },
+  {
+    "announcement_id": 2468853,
+    "title": "Congrats to the Alibaba Cloud Web Game Challenge Winners!",
+    "announced": "2025-05-08T14:33:07Z",
+    "status": "ok",
+    "links": 4,
+    "winners": 3,
+    "tag": "alibabachallenge",
+    "window": [
+      "2025-04-25T07:40:21+00:00",
+      "2025-04-30T06:48:50+00:00"
+    ],
+    "field": 25,
+    "bodies": 25,
+    "ai_levels": {
+      "not_disclosed": 28
+    }
+  },
+  {
+    "announcement_id": 2491482,
+    "title": "Congrats to the Permit.io Authorization Challenge Winners!",
+    "announced": "2025-05-15T17:51:22Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "permitchallenge",
+    "window": [
+      "2025-04-25T12:48:10+00:00",
+      "2025-05-06T08:23:49+00:00"
+    ],
+    "field": 55,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 58
+    }
+  },
+  {
+    "announcement_id": 2512119,
+    "title": "Congrats to the Amazon Q Developer \"Quack The Code\" Challenge Winners!",
+    "announced": "2025-05-22T14:30:10Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "awschallenge",
+    "window": [
+      "2025-05-07T05:57:09+00:00",
+      "2025-05-14T05:26:02+00:00"
+    ],
+    "field": 74,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 77
+    }
+  },
+  {
+    "announcement_id": 2582669,
+    "title": "Congratulations to the winner of the Bright Data Real-Time AI Agents Challenge!",
+    "announced": "2025-06-10T16:52:19Z",
+    "status": "field too small (2)",
+    "links": 1,
+    "winners": 1,
+    "tag": "brightdatachallenge",
+    "window": [
+      "2025-05-14T13:43:46+00:00",
+      "2025-05-18T13:43:46+00:00"
+    ],
+    "field": 2
+  },
+  {
+    "announcement_id": 2618815,
+    "title": "Congrats to the Winners of Postmark Challenge: Inbox Innovators!",
+    "announced": "2025-06-24T16:35:39Z",
+    "status": "ok",
+    "links": 4,
+    "winners": 3,
+    "tag": "postmarkchallenge",
+    "window": [
+      "2025-05-24T19:36:23+00:00",
+      "2025-06-11T01:08:34+00:00"
+    ],
+    "field": 109,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 112
+    }
+  },
+  {
+    "announcement_id": 2675369,
+    "title": "Congrats to the Storyblok Headless CMS Challenge Winners!",
+    "announced": "2025-07-10T15:27:39Z",
+    "status": "field too small (2)",
+    "links": 2,
+    "winners": 2,
+    "tag": "storyblokchallenge",
+    "window": [
+      "2025-06-21T17:06:13+00:00",
+      "2025-06-28T14:52:05+00:00"
+    ],
+    "field": 2
+  },
+  {
+    "announcement_id": 2676204,
+    "title": "Congrats to the Frontend Challenge: June Celebrations Winners!",
+    "announced": "2025-07-10T22:27:19Z",
+    "status": "ok",
+    "links": 6,
+    "winners": 6,
+    "tag": "frontendchallenge",
+    "window": [
+      "2025-06-04T17:49:07+00:00",
+      "2025-06-30T01:18:48+00:00"
+    ],
+    "field": 76,
+    "bodies": 30,
+    "ai_levels": {
+      "no_ai": 2,
+      "not_disclosed": 80
+    }
+  },
+  {
+    "announcement_id": 2700498,
+    "title": "Congrats to the Runner H \"AI Agent Prompting\" Challenge Winners!",
+    "announced": "2025-07-17T20:40:12Z",
+    "status": "ok",
+    "links": 20,
+    "winners": 18,
+    "tag": "runnerhchallenge",
+    "window": [
+      "2025-06-04T15:40:28+00:00",
+      "2025-07-09T05:20:16+00:00"
+    ],
+    "field": 162,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 180
+    }
+  },
+  {
+    "announcement_id": 2722929,
+    "title": "Congratulations to the World's Largest Hackathon Winners! Now it's time to share your full reflection.",
+    "announced": "2025-07-28T17:59:14Z",
+    "status": "no winners or tag found",
+    "links": 0,
+    "winners": 0,
+    "tag": null
+  },
+  {
+    "announcement_id": 2758593,
+    "title": "Congrats to the AssemblyAI Voice Agents Challenge Winners!",
+    "announced": "2025-08-07T16:37:17Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "assemblyaichallenge",
+    "window": [
+      "2025-07-18T21:28:06+00:00",
+      "2025-07-30T02:17:17+00:00"
+    ],
+    "field": 48,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 51
+    }
+  },
+  {
+    "announcement_id": 2758918,
+    "title": "Congrats to the Algolia MCP Challenge Winners!",
+    "announced": "2025-08-07T21:43:11Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "algoliachallenge",
+    "window": [
+      "2025-07-22T05:40:28+00:00",
+      "2025-07-30T04:46:06+00:00"
+    ],
+    "field": 37,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 40
+    }
+  },
+  {
+    "announcement_id": 2774328,
+    "title": "Congrats to the Frontend Challenge: Office Edition Winners!",
+    "announced": "2025-08-14T17:36:43Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "frontendchallenge",
+    "window": [
+      "2025-07-06T12:18:02+00:00",
+      "2025-07-29T18:37:08+00:00"
+    ],
+    "field": 204,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 206
+    }
+  },
+  {
+    "announcement_id": 2787824,
+    "title": "Congrats to the Redis AI Challenge Winners!",
+    "announced": "2025-08-21T15:45:13Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "redischallenge",
+    "window": [
+      "2025-08-05T07:38:12+00:00",
+      "2025-08-13T06:59:20+00:00"
+    ],
+    "field": 90,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 92
+    }
+  },
+  {
+    "announcement_id": 2788322,
+    "title": "Congrats to the World's Largest Hackathon Writing Challenge Winners!",
+    "announced": "2025-08-21T20:58:35Z",
+    "status": "ok",
+    "links": 10,
+    "winners": 9,
+    "tag": "wlhchallenge",
+    "window": [
+      "2025-07-02T10:17:08+00:00",
+      "2025-08-02T16:14:26+00:00"
+    ],
+    "field": 195,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 204
+    }
+  },
+  {
+    "announcement_id": 2839774,
+    "title": "Congrats to the Winners of the Real-Time AI Agents Challenge powered by n8n and Bright Data!",
+    "announced": "2025-09-11T20:24:46Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 5,
+    "tag": "n8nbrightdatachallenge",
+    "window": [
+      "2025-08-25T13:03:59+00:00",
+      "2025-09-03T01:16:14+00:00"
+    ],
+    "field": 79,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 84
+    }
+  },
+  {
+    "announcement_id": 2854385,
+    "title": "Congrats to the Midnight Network \"Privacy First\" Challenge Winners!",
+    "announced": "2025-09-18T19:32:24Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "midnightchallenge",
+    "window": [
+      "2025-08-21T02:54:50+00:00",
+      "2025-09-09T22:19:11+00:00"
+    ],
+    "field": 34,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 37
+    }
+  },
+  {
+    "announcement_id": 2883222,
+    "title": "Congrats to the Google AI Multimodal Challenge Winners!",
+    "announced": "2025-10-02T17:08:53Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "googleaichallenge",
+    "window": [
+      "2025-09-11T20:30:36+00:00",
+      "2025-09-16T16:14:26+00:00"
+    ],
+    "field": 123,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 126
+    }
+  },
+  {
+    "announcement_id": 2908823,
+    "title": "Congrats to the latest KendoReact Free Components Challenge Winners!",
+    "announced": "2025-10-09T16:24:34Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "kendoreactchallenge",
+    "window": [
+      "2025-09-20T05:27:22+00:00",
+      "2025-10-01T06:37:46+00:00"
+    ],
+    "field": 60,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 63
+    }
+  },
+  {
+    "announcement_id": 2920457,
+    "title": "Congrats to the Heroku \"Back to School\" AI Challenge Winners!",
+    "announced": "2025-10-13T14:28:12Z",
+    "status": "field too small (6)",
+    "links": 3,
+    "winners": 3,
+    "tag": "herokuchallenge",
+    "window": [
+      "2025-09-26T22:56:01+00:00",
+      "2025-10-01T06:59:19+00:00"
+    ],
+    "field": 6
+  },
+  {
+    "announcement_id": 2999273,
+    "title": "Congrats to the Winners of the Auth0 for AI Agents Challenge!",
+    "announced": "2025-11-06T23:16:49Z",
+    "status": "ok",
+    "links": 4,
+    "winners": 3,
+    "tag": "auth0challenge",
+    "window": [
+      "2025-10-25T05:58:34+00:00",
+      "2025-10-29T06:58:47+00:00"
+    ],
+    "field": 14,
+    "bodies": 14,
+    "ai_levels": {
+      "not_disclosed": 17
+    }
+  },
+  {
+    "announcement_id": 3042509,
+    "title": "Congrats to the 2025 Hacktoberfest Writing Challenge Winners!",
+    "announced": "2025-11-20T19:15:18Z",
+    "status": "ok",
+    "links": 15,
+    "winners": 15,
+    "tag": "codenewbie",
+    "window": [
+      "2025-10-01T06:25:07+00:00",
+      "2025-11-05T06:05:02+00:00"
+    ],
+    "field": 31,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 46
+    }
+  },
+  {
+    "announcement_id": 3077942,
+    "title": "Congrats to the Winners of the Agentic Postgres Challenge with Tiger Data!",
+    "announced": "2025-12-01T23:34:52Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "agenticpostgreschallenge",
+    "window": [
+      "2025-10-26T19:25:15+00:00",
+      "2025-11-12T05:17:55+00:00"
+    ],
+    "field": 34,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 37
+    }
+  },
+  {
+    "announcement_id": 3114021,
+    "title": "Congrats to the Frontend Challenge: Halloween Edition Winners!",
+    "announced": "2025-12-18T20:41:18Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "frontendchallenge",
+    "window": [
+      "2025-10-23T21:19:32+00:00",
+      "2025-11-12T06:06:07+00:00"
+    ],
+    "field": 57,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 59
+    }
+  },
+  {
+    "announcement_id": 3113758,
+    "title": "Congrats to the Winners of the AI Challenge for Cross-Platform Apps!",
+    "announced": "2025-12-19T15:19:05Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "unoplatformchallenge",
+    "window": [
+      "2025-12-03T05:42:02+00:00",
+      "2025-12-09T16:41:19+00:00"
+    ],
+    "field": 26,
+    "bodies": 26,
+    "ai_levels": {
+      "not_disclosed": 29
+    }
+  },
+  {
+    "announcement_id": 3141545,
+    "title": "Congrats to the Xano AI-Powered Backend Challenge Winners!",
+    "announced": "2026-01-01T19:18:26Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "xanochallenge",
+    "window": [
+      "2025-12-09T21:12:12+00:00",
+      "2025-12-17T07:56:49+00:00"
+    ],
+    "field": 25,
+    "bodies": 25,
+    "ai_levels": {
+      "not_disclosed": 27
+    }
+  },
+  {
+    "announcement_id": 3156178,
+    "title": "Congrats to the AI Agents Intensive Course Writing Challenge Winners!",
+    "announced": "2026-01-08T18:04:01Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 5,
+    "tag": "googleaichallenge",
+    "window": [
+      "2025-12-03T17:33:37+00:00",
+      "2025-12-17T05:34:19+00:00"
+    ],
+    "field": 200,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 205
+    }
+  },
+  {
+    "announcement_id": 3191956,
+    "title": "Congrats to the Winners of the \"Worldwide Show and Tell Challenge\" Presented by Mux!",
+    "announced": "2026-01-22T22:20:33Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "muxchallenge",
+    "window": [
+      "2026-01-02T14:28:10+00:00",
+      "2026-01-07T03:25:34+00:00"
+    ],
+    "field": 48,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 50
+    }
+  },
+  {
+    "announcement_id": 3266739,
+    "title": "Congrats to the \"New Year, New You\" Portfolio Challenge Winners and Runner-Ups!",
+    "announced": "2026-02-19T20:34:23Z",
+    "status": "ok",
+    "links": 8,
+    "winners": 8,
+    "tag": "googleaichallenge",
+    "window": [
+      "2026-01-03T04:16:41+00:00",
+      "2026-02-04T06:59:11+00:00"
+    ],
+    "field": 300,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 308
+    }
+  },
+  {
+    "announcement_id": 3309203,
+    "title": "Congrats to the Algolia Agent Studio Challenge Winners!",
+    "announced": "2026-03-04T18:25:32Z",
+    "status": "ok",
+    "links": 4,
+    "winners": 4,
+    "tag": "algoliachallenge",
+    "window": [
+      "2026-02-01T22:45:20+00:00",
+      "2026-02-11T00:52:54+00:00"
+    ],
+    "field": 49,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 53
+    }
+  },
+  {
+    "announcement_id": 3331372,
+    "title": "Congrats to the GitHub Copilot CLI Challenge Winners!",
+    "announced": "2026-03-09T18:28:59Z",
+    "status": "ok",
+    "links": 28,
+    "winners": 27,
+    "tag": "githubchallenge",
+    "window": [
+      "2026-01-23T23:45:23+00:00",
+      "2026-02-18T06:40:50+00:00"
+    ],
+    "field": 400,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 427
+    }
+  },
+  {
+    "announcement_id": 3369046,
+    "title": "Congrats to the \"Built with Google Gemini: Writing Challenge\" Winners!",
+    "announced": "2026-03-19T19:31:58Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 4,
+    "tag": "geminireflections",
+    "window": [
+      "2026-02-24T15:10:50+00:00",
+      "2026-03-05T21:54:39+00:00"
+    ],
+    "field": 128,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 132
+    }
+  },
+  {
+    "announcement_id": 3373345,
+    "title": "Congrats to the Winners of Our First DEV Weekend Challenge!",
+    "announced": "2026-03-19T20:26:57Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "weekendchallenge",
+    "window": [
+      "2026-02-26T19:57:48+00:00",
+      "2026-03-04T07:58:17+00:00"
+    ],
+    "field": 208,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 211
+    }
+  },
+  {
+    "announcement_id": 3506618,
+    "title": "Congrats to the 2026 WeCoded Challenge Winners!",
+    "announced": "2026-04-16T21:34:36Z",
+    "status": "ok",
+    "links": 6,
+    "winners": 6,
+    "tag": "wecoded",
+    "window": [
+      "2026-03-07T03:37:29+00:00",
+      "2026-04-05T05:49:31+00:00"
+    ],
+    "field": 156,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 162
+    }
+  },
+  {
+    "announcement_id": 3516155,
+    "title": "Congrats to the Notion MCP Challenge Winners!",
+    "announced": "2026-04-17T16:30:22Z",
+    "status": "ok",
+    "links": 3,
+    "winners": 3,
+    "tag": "notionchallenge",
+    "window": [
+      "2026-03-25T19:07:08+00:00",
+      "2026-04-01T05:09:41+00:00"
+    ],
+    "field": 101,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 104
+    }
+  },
+  {
+    "announcement_id": 3542971,
+    "title": "Congrats to the April Fools Challenge Winners!!",
+    "announced": "2026-04-23T20:47:21Z",
+    "status": "ok",
+    "links": 6,
+    "winners": 5,
+    "tag": "418challenge",
+    "window": [
+      "2026-04-01T00:55:59+00:00",
+      "2026-04-13T16:26:44+00:00"
+    ],
+    "field": 263,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 268
+    }
+  },
+  {
+    "announcement_id": 3593416,
+    "title": "Announcing the Winners of the DEV Weekend Challenge: Earth Day Edition \ud83c\udf0d",
+    "announced": "2026-04-30T21:25:40Z",
+    "status": "ok",
+    "links": 11,
+    "winners": 9,
+    "tag": "weekendchallenge",
+    "window": [
+      "2026-04-15T23:03:13+00:00",
+      "2026-04-22T06:34:33+00:00"
+    ],
+    "field": 151,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 160
+    }
+  },
+  {
+    "announcement_id": 3627978,
+    "title": "Congrats to the Google Cloud NEXT '26 Writing Challenge Winners!",
+    "announced": "2026-05-07T18:48:04Z",
+    "status": "ok",
+    "links": 6,
+    "winners": 5,
+    "tag": "cloudnextchallenge",
+    "window": [
+      "2026-04-23T17:37:31+00:00",
+      "2026-05-02T06:45:48+00:00"
+    ],
+    "field": 209,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 214
+    }
+  },
+  {
+    "announcement_id": 3629085,
+    "title": "Congrats to the OpenClaw Challenge Winners!",
+    "announced": "2026-05-07T21:27:14Z",
+    "status": "ok",
+    "links": 6,
+    "winners": 6,
+    "tag": "openclawchallenge",
+    "window": [
+      "2026-04-15T08:57:32+00:00",
+      "2026-04-29T04:10:19+00:00"
+    ],
+    "field": 200,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 206
+    }
+  },
+  {
+    "announcement_id": 3875595,
+    "title": "Congrats to the Google I/O 2026 Writing Challenge Winners!",
+    "announced": "2026-06-11T15:38:46Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 5,
+    "tag": "googleiochallenge",
+    "window": [
+      "2026-05-19T20:22:22+00:00",
+      "2026-05-26T19:42:09+00:00"
+    ],
+    "field": 221,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 226
+    }
+  },
+  {
+    "announcement_id": 3934585,
+    "title": "Congrats to the Gemma 4 Challenge Winners!",
+    "announced": "2026-06-18T18:56:22Z",
+    "status": "ok",
+    "links": 15,
+    "winners": 14,
+    "tag": "gemmachallenge",
+    "window": [
+      "2026-05-15T13:54:53+00:00",
+      "2026-05-27T05:42:55+00:00"
+    ],
+    "field": 446,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 459,
+      "some_ai": 1
+    }
+  },
+  {
+    "announcement_id": 3935459,
+    "title": "Congrats to the Hermes Agent Challenge Winners!",
+    "announced": "2026-06-18T22:13:44Z",
+    "status": "ok",
+    "links": 12,
+    "winners": 12,
+    "tag": "hermesagentchallenge",
+    "window": [
+      "2026-05-14T06:58:03+00:00",
+      "2026-06-02T05:32:31+00:00"
+    ],
+    "field": 333,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 345
+    }
+  },
+  {
+    "announcement_id": 4054555,
+    "title": "Congrats to the GitHub Finish-Up-A-Thon Challenge Winners!",
+    "announced": "2026-07-02T22:04:04Z",
+    "status": "ok",
+    "links": 10,
+    "winners": 10,
+    "tag": "githubchallenge",
+    "window": [
+      "2026-05-25T04:59:28+00:00",
+      "2026-06-09T20:13:47+00:00"
+    ],
+    "field": 449,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 459
+    }
+  },
+  {
+    "announcement_id": 4108558,
+    "title": "Congrats to the June Solstice Game Jam Winners!",
+    "announced": "2026-07-09T20:23:01Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 5,
+    "tag": "gamechallenge",
+    "window": [
+      "2026-06-17T22:48:48+00:00",
+      "2026-06-23T01:04:22+00:00"
+    ],
+    "field": 95,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 100
+    }
+  },
+  {
+    "announcement_id": 4274330,
+    "title": "Congrats to the DEV Weekend Challenge: Passion Edition Winners!",
+    "announced": "2026-07-30T20:24:25Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 5,
+    "tag": "weekendchallenge",
+    "window": [
+      "2026-07-10T01:52:27+00:00",
+      "2026-07-15T02:14:20+00:00"
+    ],
+    "field": 258,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 262,
+      "no_ai": 1
+    }
+  },
+  {
+    "announcement_id": 4625271,
+    "title": "Congrats to the Frontend Challenge: Comfort Food Edition Winners!",
+    "announced": "2026-09-10T18:23:05Z",
+    "status": "ok",
+    "links": 2,
+    "winners": 2,
+    "tag": "frontendchallenge",
+    "window": [
+      "2026-08-04T17:47:27+00:00",
+      "2026-08-12T04:28:36+00:00"
+    ],
+    "field": 64,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 66
+    }
+  },
+  {
+    "announcement_id": 4679179,
+    "title": "Congrats to the DEV Weekend Challenge: Dog Days Edition Winners!",
+    "announced": "2026-09-17T20:22:43Z",
+    "status": "ok",
+    "links": 5,
+    "winners": 5,
+    "tag": "weekendchallenge",
+    "window": [
+      "2026-08-14T05:19:51+00:00",
+      "2026-08-19T06:40:02+00:00"
+    ],
+    "field": 102,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 106,
+      "some_ai": 1
+    }
+  },
+  {
+    "announcement_id": 4735686,
+    "title": "Congrats to the Summer Bug Smash Winners!",
+    "announced": "2026-09-24T19:32:35Z",
+    "status": "ok",
+    "links": 23,
+    "winners": 23,
+    "tag": "bugsmash",
+    "window": [
+      "2026-07-13T09:51:27+00:00",
+      "2026-08-24T22:46:18+00:00"
+    ],
+    "field": 413,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 435,
+      "no_ai": 1
+    }
+  },
+  {
+    "announcement_id": 4784422,
+    "title": "Congrats to the DEV Weekend Challenge: Generosity Edition Winners!",
+    "announced": "2026-10-01T21:44:54Z",
+    "status": "ok",
+    "links": 8,
+    "winners": 8,
+    "tag": "weekendchallenge",
+    "window": [
+      "2026-09-02T08:31:10+00:00",
+      "2026-09-09T06:57:48+00:00"
+    ],
+    "field": 89,
+    "bodies": 30,
+    "ai_levels": {
+      "not_disclosed": 79,
+      "some_ai": 14,
+      "no_ai": 1,
+      "fully_autonomous": 3
+    }
+  },
+  {
+    "announcement_id": 4824129,
+    "title": "Congrats to Our First MLH x DEV Writing Challenge Winner!",
+    "announced": "2026-10-09T18:56:35Z",
+    "status": "field too small (3)",
+    "links": 1,
+    "winners": 1,
+    "tag": "mlhacks",
+    "window": [
+      "2026-09-20T09:17:49+00:00",
+      "2026-09-24T09:17:49+00:00"
+    ],
+    "field": 3
+  },
+  {
+    "announcement_id": 4825130,
+    "title": "Congrats to the Hacktoberfest Weekend Challenge: Build for a Friend Winners!",
+    "announced": "2026-10-09T19:32:27Z",
+    "status": "ok",
+    "links": 17,
+    "winners": 17,
+    "tag": "weekendchallenge",
+    "window": [
+      "2026-09-30T13:37:59+00:00",
+      "2026-10-07T06:57:13+00:00"
+    ],
+    "field": 1408,
+    "bodies": 30,
+    "ai_levels": {
+      "some_ai": 213,
+      "not_disclosed": 1160,
+      "fully_autonomous": 40,
+      "no_ai": 12
+    }
+  }
+]
