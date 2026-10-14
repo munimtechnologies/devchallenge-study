@@ -10,14 +10,17 @@ measures pick winners BEFORE DEV announces them?
   snapshot  lists every post carrying the challenge tag, fetches each body,
             records its shape (words, headings, tables, video, cover, ...) and
             which round it entered. Reactions are recorded but never used to
-            predict.
+            predict. DEV's own posts (launches, announcements) are skipped.
   predict   fits a logistic model on the study's 55 past challenges (within-
             challenge percentiles of the shape measures, no reactions, no
             timing), backtests it by leaving one challenge out at a time, then
             ranks the entries of each open round. The ranking is committed to
             the repo before the announcement, so it can be scored honestly.
   score     after DEV's announcement: how many announced winners were in the
-            top-k of the committed ranking, against what chance would give.
+            top-k of the committed ranking, against what chance would give,
+            for both pre-registered orderings (logistic and plain rank).
+            `--announcement auto --round week1` finds the announcement itself
+            and reports "not_announced" if DEV has not posted it yet.
 
 Uses only DEV's public API (no key). Outputs hold article ids and measured
 features, never usernames. Made by MV2 of Munim, Inc., with AI agents working
@@ -38,7 +41,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 API = "https://dev.to/api"
-UA = "mv2-devchallenge-study/0.2 (MV2 of Munim, Inc.; munimversion2@gmail.com)"
+UA = "mv2-devchallenge-study/0.3 (MV2 of Munim, Inc.; munimversion2@gmail.com)"
 PAUSE = 1.0
 MAX_TAG_PAGES = 60
 TRAIN_URL = "https://raw.githubusercontent.com/munimtechnologies/devchallenge-study/main/data/posts.csv"
@@ -64,6 +67,8 @@ SKIP_USERS = {
     "top", "latest", "videos", "listings", "badge", "badges", "pod", "help",
     "s", "dashboard", "new", "mlh-hackathon", "admin", "sponsors", "about",
 }
+# Accounts whose tagged posts are launches or announcements, not entries.
+OFFICIAL = {"devteam"}
 
 # Shape measures. CONT are ranked within a challenge (percentiles); BINARY are 0/1.
 CONT = ["reading_time", "title_words", "n_tags", "words", "headings",
@@ -91,11 +96,25 @@ def now_iso():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def write_json(path, obj):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, indent=2)
+
+
 def tags_of(article):
     t = article.get("tag_list")
     if isinstance(t, str):
         return [x.strip() for x in t.split(",") if x.strip()]
     return [str(x) for x in (t or [])]
+
+
+def is_official(article):
+    """True for posts by DEV's own account or organisation (not entries)."""
+    for key in ("user", "organization"):
+        who = article.get(key) or {}
+        if str(who.get("username") or "").lower() in OFFICIAL:
+            return True
+    return False
 
 
 def ai_level(article):
@@ -270,12 +289,15 @@ def snapshot(args):
     seen_anns = announcements_seen(client)
     log(f"announcements already out: {json.dumps(seen_anns)}")
     listing = list_tag(client, args.tag, since)
-    rows, counts = [], {}
+    rows, counts, official = [], {}, []
     for a in listing:
         if not a.get("published_at"):
             continue
         pub = parse_time(a["published_at"])
         if pub < since:
+            continue
+        if is_official(a):
+            official.append(a["id"])
             continue
         row = {"article_id": a["id"], "published_at": a["published_at"], "snapshot_at": started,
                "language": a.get("language") or "en",
@@ -306,10 +328,10 @@ def snapshot(args):
         wr.writerows(rows)
     meta = {"snapshot_at": started, "finished_at": now_iso(), "tag": args.tag, "since": args.since,
             "bodies_from": args.bodies_from, "announcements_seen": seen_anns,
+            "official_posts_skipped": sorted(official),
             "rounds": counts, "posts": len(rows), "requests": client.requests,
             "minutes": round((time.time() - t0) / 60, 1)}
-    with open(os.path.join(args.out_dir, "rounds.json"), "w", encoding="utf-8") as f:
-        json.dump(meta, f, indent=2)
+    write_json(os.path.join(args.out_dir, "rounds.json"), meta)
     log(json.dumps({k: v for k, v in meta.items() if k != "rounds"}))
     return 0
 
@@ -535,10 +557,8 @@ def predict(args):
     log(f"model fitted on {len(kept)} challenges, {len(X)} rows, {sum(y)} winners")
     bt, per_c = backtest(kept, l2=args.l2) if not args.skip_backtest else ({}, [])
     log(f"backtest: {json.dumps(bt)}")
-    with open(os.path.join(args.out_dir, "model.json"), "w", encoding="utf-8") as f:
-        json.dump(model, f, indent=2)
-    with open(os.path.join(args.out_dir, "backtest.json"), "w", encoding="utf-8") as f:
-        json.dump({"summary": bt, "per_challenge": per_c}, f, indent=2)
+    write_json(os.path.join(args.out_dir, "model.json"), model)
+    write_json(os.path.join(args.out_dir, "backtest.json"), {"summary": bt, "per_challenge": per_c})
 
     field = load_field(args.field) if args.field and os.path.exists(args.field) else []
     rounds_meta = {}
@@ -610,7 +630,21 @@ def report(model, bt, preds, rounds_meta):
 
 def score(args):
     client = Client(args.pause)
-    ann = client.get(f"/articles/{args.announcement}")
+    ann_id = args.announcement
+    if ann_id == "auto":
+        if not args.round:
+            log("--announcement auto needs --round")
+            return 2
+        seen = announcements_seen(client)
+        if args.round not in seen:
+            result = {"status": "not_announced", "round": args.round, "checked_at": now_iso(),
+                      "predictions": args.predictions}
+            log(json.dumps(result, indent=2))
+            if args.out:
+                write_json(args.out, result)
+            return 0
+        ann_id = seen[args.round]["announcement_id"]
+    ann = client.get(f"/articles/{ann_id}")
     if not isinstance(ann, dict):
         log("announcement not readable")
         return 1
@@ -618,29 +652,41 @@ def score(args):
     winner_ids = []
     for user, slug in links:
         w = client.get(f"/articles/{urllib.parse.quote(user)}/{urllib.parse.quote(slug)}")
-        if isinstance(w, dict) and w.get("id"):
+        if isinstance(w, dict) and w.get("id") and int(w["id"]) not in winner_ids:
             winner_ids.append(int(w["id"]))
     ranked = load_field(args.predictions)
-    result = score_predictions(ranked, winner_ids)
-    result.update({"announcement_id": ann.get("id"), "announced": ann.get("published_at"),
-                   "scored_at": now_iso(), "predictions": args.predictions})
+    result = {"status": "scored", "round": args.round or "",
+              "announcement_id": ann.get("id"), "announced": ann.get("published_at"),
+              "scored_at": now_iso(), "predictions": args.predictions,
+              "winner_ids": winner_ids,
+              "logistic": score_predictions(ranked, winner_ids, by="rank"),
+              "rank_score": score_predictions(ranked, winner_ids, by="rank_score")}
     log(json.dumps(result, indent=2))
     if args.out:
-        with open(args.out, "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=2)
+        write_json(args.out, result)
     return 0
 
 
-def score_predictions(ranked, winner_ids):
-    """ranked: rows with rank and article_id (best first). Chance = k*k/n."""
-    ids = [int(r["article_id"]) for r in sorted(ranked, key=lambda r: int(r["rank"]))]
+def order_ids(ranked, by="rank"):
+    """Article ids best first: committed rank, or the plain rank_score baseline."""
+    if by == "rank_score":
+        rows = sorted(ranked, key=lambda r: (-float(r["rank_score"]), int(r["article_id"])))
+    else:
+        rows = sorted(ranked, key=lambda r: int(r["rank"]))
+    return [int(r["article_id"]) for r in rows]
+
+
+def score_predictions(ranked, winner_ids, by="rank"):
+    """ranked: rows with rank, article_id (and rank_score). Chance = k*k/n."""
+    ids = order_ids(ranked, by)
     n = len(ids)
-    present = [w for w in winner_ids if w in ids]
-    k = len(present)
     pos = {a: i for i, a in enumerate(ids)}
+    present = [w for w in winner_ids if w in pos]
+    k = len(present)
     hits = sum(1 for w in present if pos[w] < k)
     pcts = [1 - pos[w] / max(1, n - 1) for w in present]
     return {"ranked_entries": n, "winners_announced": len(winner_ids), "winners_in_ranking": k,
+            "missing_from_ranking": [w for w in winner_ids if w not in pos],
             "hits_top_k": hits, "expected_hits_if_random": round(k * k / n, 2) if n else None,
             "mean_winner_percentile": round(sum(pcts) / k, 3) if k else None,
             "winner_ranks": sorted(pos[w] + 1 for w in present)}
@@ -667,7 +713,9 @@ def main(argv=None):
     p.set_defaults(func=predict)
     c = sub.add_parser("score")
     c.add_argument("--predictions", required=True)
-    c.add_argument("--announcement", required=True, help="devteam announcement article id")
+    c.add_argument("--announcement", default="auto",
+                   help="devteam announcement article id, or 'auto' to find it by --round")
+    c.add_argument("--round", default="", choices=["", *ROUNDS])
     c.add_argument("--out", default="")
     c.add_argument("--pause", type=float, default=PAUSE)
     c.set_defaults(func=score)

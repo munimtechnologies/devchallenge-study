@@ -66,6 +66,12 @@ class FeatureTests(unittest.TestCase):
         self.assertEqual(hf26.extract_links(text, None),
                          [("alice", "my-cool-post-1abc"), ("bob", "other-post-2x")])
 
+    def test_is_official(self):
+        self.assertTrue(hf26.is_official({"user": {"username": "devteam"}}))
+        self.assertTrue(hf26.is_official({"user": {"username": "jess"}, "organization": {"username": "devteam"}}))
+        self.assertFalse(hf26.is_official({"user": {"username": "alice"}}))
+        self.assertFalse(hf26.is_official({}))
+
 
 class MathTests(unittest.TestCase):
     def test_pct_in(self):
@@ -106,9 +112,20 @@ class RankingTests(unittest.TestCase):
         res = hf26.score_predictions(ranked, [10, 30, 99])
         self.assertEqual(res["winners_announced"], 3)
         self.assertEqual(res["winners_in_ranking"], 2)
+        self.assertEqual(res["missing_from_ranking"], [99])
         self.assertEqual(res["hits_top_k"], 1)
         self.assertAlmostEqual(res["expected_hits_if_random"], 1.0)
         self.assertEqual(res["winner_ranks"], [1, 3])
+
+    def test_score_by_rank_score_reorders(self):
+        ranked = [{"rank": "1", "article_id": "10", "rank_score": "0.2"},
+                  {"rank": "2", "article_id": "20", "rank_score": "0.9"},
+                  {"rank": "3", "article_id": "30", "rank_score": "0.5"}]
+        self.assertEqual(hf26.order_ids(ranked), [10, 20, 30])
+        self.assertEqual(hf26.order_ids(ranked, by="rank_score"), [20, 30, 10])
+        res = hf26.score_predictions(ranked, [20], by="rank_score")
+        self.assertEqual(res["hits_top_k"], 1)
+        self.assertEqual(res["winner_ranks"], [1])
 
     def test_backtest_finds_planted_signal(self):
         rows = []
@@ -130,11 +147,11 @@ class RankingTests(unittest.TestCase):
         self.assertEqual(hf26.prepare_train(rows), {})
 
 
-def article(aid, published):
+def article(aid, published, username="alice"):
     return {"id": aid, "title": "My 5 tools: a demo", "published_at": published,
             "tag_list": ["devchallenge", "hf26challenge"], "cover_image": "x",
             "reading_time_minutes": 4, "public_reactions_count": 3, "comments_count": 0,
-            "language": "en", "ai_disclosure_level": "some_ai"}
+            "language": "en", "ai_disclosure_level": "some_ai", "user": {"username": username}}
 
 
 class StubClient:
@@ -147,13 +164,42 @@ class StubClient:
             return []
         if path.startswith("/articles?tag=hf26challenge"):
             if path.endswith("page=1"):
-                return [article(1, "2026-10-08T12:00:00Z"), article(2, "2026-10-14T12:00:00Z")]
+                return [article(1, "2026-10-08T12:00:00Z"), article(2, "2026-10-14T12:00:00Z"),
+                        article(3, "2026-10-12T19:00:00Z", username="devteam")]
             return []
         if path == "/articles/1":
             return {"body_markdown": "[x](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)\n# Hi\nwords"}
         if path == "/articles/2":
             return {"body_markdown": "[x](https://dev.to/challenges/hacktoberfest-week2-2026-10-12)\nwords"}
         return None
+
+
+class AnnouncedStub(StubClient):
+    """DEV after the week-1 announcement, which links two winners."""
+
+    def get(self, path, tries=6):
+        self.requests += 1
+        if path.startswith("/articles?username=devteam"):
+            return [{"id": 900, "title": "Congrats to the Hacktoberfest Week 1: Touch Grass Winners!",
+                     "published_at": "2026-10-15T19:00:00Z"}]
+        if path == "/articles/900":
+            return {"id": 900, "published_at": "2026-10-15T19:00:00Z",
+                    "body_html": '<a href="https://dev.to/alice/first-post-1a">x</a> '
+                                 '<a href="https://dev.to/bob/second-post-2b">y</a> '
+                                 '<a href="https://dev.to/alice/first-post-1a">again</a>'}
+        if path == "/articles/alice/first-post-1a":
+            return {"id": 30}
+        if path == "/articles/bob/second-post-2b":
+            return {"id": 77}
+        return None
+
+
+def write_predictions(path):
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        wr = csv.DictWriter(f, fieldnames=["rank", "article_id", "score", "rank_score"])
+        wr.writeheader()
+        for i, (aid, rs) in enumerate([(10, 0.9), (20, 0.1), (30, 0.8), (40, 0.2)], 1):
+            wr.writerow({"rank": i, "article_id": aid, "score": 1.0 - i / 10, "rank_score": rs})
 
 
 class SnapshotTests(unittest.TestCase):
@@ -173,6 +219,42 @@ class SnapshotTests(unittest.TestCase):
             with open(os.path.join(out, "rounds.json"), encoding="utf-8") as f:
                 meta = json.load(f)
             self.assertEqual(meta["posts"], 2)
+            self.assertEqual(meta["official_posts_skipped"], [3])
+
+
+class ScoreTests(unittest.TestCase):
+    def run_score(self, client_cls):
+        with tempfile.TemporaryDirectory() as d:
+            preds = os.path.join(d, "predictions_week1.csv")
+            write_predictions(preds)
+            out = os.path.join(d, "score.json")
+            with mock.patch.object(hf26, "Client", client_cls):
+                code = hf26.main(["score", "--predictions", preds, "--round", "week1",
+                                  "--out", out, "--pause", "0"])
+            with open(out, encoding="utf-8") as f:
+                return code, json.load(f)
+
+    def test_auto_reports_not_announced(self):
+        code, res = self.run_score(StubClient)
+        self.assertEqual(code, 0)
+        self.assertEqual(res["status"], "not_announced")
+        self.assertEqual(res["round"], "week1")
+
+    def test_auto_finds_announcement_and_scores_both_orders(self):
+        code, res = self.run_score(AnnouncedStub)
+        self.assertEqual(code, 0)
+        self.assertEqual(res["status"], "scored")
+        self.assertEqual(res["announcement_id"], 900)
+        self.assertEqual(res["winner_ids"], [30, 77])
+        self.assertEqual(res["logistic"]["winners_in_ranking"], 1)
+        self.assertEqual(res["logistic"]["missing_from_ranking"], [77])
+        self.assertEqual(res["logistic"]["winner_ranks"], [3])
+        self.assertEqual(res["logistic"]["hits_top_k"], 0)
+        self.assertEqual(res["rank_score"]["winner_ranks"], [2])
+
+    def test_auto_needs_round(self):
+        with mock.patch.object(hf26, "Client", StubClient):
+            self.assertEqual(hf26.main(["score", "--predictions", "x.csv"]), 2)
 
 
 if __name__ == "__main__":
