@@ -65,6 +65,8 @@ The first rankings are in [`predictions/2026-10-14/`](predictions/2026-10-14/), 
 
 Left out one challenge at a time, the model put past winners at a mean percentile of 0.78 (0.75 to 0.81) and 151 of 323 winners in their challenge's top-k against 77 by chance. That backtest ranks winners against small sampled fields; the live test ranks them against every entry, so it is much harder. Each round's result is added here when DEV announces its winners, whatever it shows.
 
+**From week 2 on, the way winners are read is frozen too.** `score_round.py` was committed before the week-2 round closed, reproduces the week-1 score exactly, and will score every later round unchanged: see [`SCORING.md`](SCORING.md).
+
 ### Week 1 result
 
 DEV announced the 17 Touch Grass winners on 2026-10-16 (article 4863823). Scored against the ranking committed on 2026-10-14:
@@ -116,8 +118,10 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 - `data/posts.csv`: one row per post (article id, never a username) with every measured feature.
 - `hf26.py`, `test_hf26.py`, `PREREGISTRATION.md`: the forward test (`snapshot`, `predict`, `score`) and its protocol.
 - `score_w1.py`, `test_score_w1.py`: the week-1 scorer described above. `python score_w1.py --predictions predictions/2026-10-14/predictions_week1.csv --out score_week1.json --md SCORE.md`
+- `score_round.py`, `test_score_round.py`, `check_rescore.py`, `SCORING.md`: the frozen scorer for week 2 onward, its tests, the week-1 reproduction check, and what is frozen. `python score_round.py --round week2 --predictions <ranking> --out score_week2.json --md SCORE_week2.md`
+- `checks/2026-10-17/`: the run that checked `score_round.py` before it was committed (week-1 rescore, weekend winners, week 2 not yet announced).
 - `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report, and once scored, `SCORE.md` and `score_<round>.json`.
 
 ## Licence
 
-Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `score_w1.py`, `test_score_w1.py`): Apache-2.0, see `LICENSE`. Data in `data/` and `predictions/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
+Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `score_w1.py`, `test_score_w1.py`, `score_round.py`, `test_score_round.py`, `check_rescore.py`): Apache-2.0, see `LICENSE`. Data in `data/`, `predictions/` and `checks/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
