@@ -60,10 +60,30 @@ The first rankings are in [`predictions/2026-10-14/`](predictions/2026-10-14/), 
 
 | Round | Entries ranked | Winners advertised | Expected in the top-k by chance | Status |
 |---|---|---|---|---|
-| week1 (Touch Grass) | 1,797 | 17 | about 0.16 | closed; awaiting DEV's announcement |
-| week2 (Side Hustle) | 333 (partial) | 18 | about 0.97 | still open at the snapshot |
+| week1 (Touch Grass) | 1,797 | 17 | about 0.16 | **scored 2026-10-17** (below) |
+| week2 (Side Hustle) | 333 (partial) | 18 | about 0.97 | still open at the snapshot; a full ranking follows after the round closes (2026-10-19 07:00 UTC) and before its announcement |
 
-Left out one challenge at a time, the model put past winners at a mean percentile of 0.78 (0.75 to 0.81) and 151 of 323 winners in their challenge's top-k against 77 by chance. That backtest ranks winners against small sampled fields; the live test ranks them against every entry, so it is much harder. Results will be added here when DEV announces the winners, whatever they show.
+Left out one challenge at a time, the model put past winners at a mean percentile of 0.78 (0.75 to 0.81) and 151 of 323 winners in their challenge's top-k against 77 by chance. That backtest ranks winners against small sampled fields; the live test ranks them against every entry, so it is much harder. Each round's result is added here when DEV announces its winners, whatever it shows.
+
+### Week 1 result
+
+DEV announced the 17 Touch Grass winners on 2026-10-16 (article 4863823). Scored against the ranking committed on 2026-10-14:
+
+| Ordering | Winners in the top 17 | Expected by chance | Mean winner percentile (0.50 = no signal) |
+|---|---|---|---|
+| Logistic model (primary) | 3 | 0.16 | **0.937** |
+| rank_score baseline | 4 | 0.16 | 0.913 |
+
+All 17 winners were in the ranking. The logistic model put the middle winner at rank 76 of 1,797, 11 of the 17 in the top tenth, and every one in the top 343. In 200,000 random placements of 17 winners, none reached a mean percentile this high (a check added after the fact, not pre-registered).
+
+That is far above chance, and above the backtest's 0.78. But it is one round, and the pre-registration asks for more than one before calling it a signal: week 2 (Side Hustle) is the second test. The model reads shape, never substance, and 10 of the 17 winners are partner-category picks, chosen partly for the technology used.
+
+Winner ranks, the scorer's output and the reading described below: [`predictions/2026-10-14/SCORE.md`](predictions/2026-10-14/SCORE.md) and `score_week1.json`.
+
+How it was scored. The scoring function (`hf26.score_predictions`) and the committed ranking are unchanged; only the step that reads the winners differs from `hf26.py score --announcement auto`, in `score_w1.py`:
+- The automatic run (job hf26-score-w1-v1) stopped with "announcement not readable": DEV's API returned 404 for the announcement's id, most likely a stale edge-cached response. `score_w1.py` adds a per-run `item` token to every request.
+- The committed extractor reads every dev.to link in the announcement, which adds 3 posts the intro mentions as examples, not winners. `score_w1.py` reads only links under the winner headings and checks the count against the 17 DEV advertised. The committed extractor's reading is kept in `score_week1.json` (`committed_extractor`: 20 posts, logistic 5 in the top 20 against 0.22 by chance, mean percentile 0.931).
+- A first version (job hf26-score-w1-v2) found only 16 of the 17 winners: the announcement embeds the overall winner under the author's earlier username, which the API no longer resolves. Version 0.2.0 retries such a link under the username the announcement's HTML uses for the identical slug, and lists each case in `renamed_links` (one here).
 
 ## Method
 
@@ -95,8 +115,9 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 - `data/challenges.json`: per challenge, the announcement, chosen tag, window, field size, sample size and AI-disclosure counts.
 - `data/posts.csv`: one row per post (article id, never a username) with every measured feature.
 - `hf26.py`, `test_hf26.py`, `PREREGISTRATION.md`: the forward test (`snapshot`, `predict`, `score`) and its protocol.
-- `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report.
+- `score_w1.py`, `test_score_w1.py`: the week-1 scorer described above. `python score_w1.py --predictions predictions/2026-10-14/predictions_week1.csv --out score_week1.json --md SCORE.md`
+- `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report, and once scored, `SCORE.md` and `score_<round>.json`.
 
 ## Licence
 
-Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`): Apache-2.0, see `LICENSE`. Data in `data/` and `predictions/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
+Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `score_w1.py`, `test_score_w1.py`): Apache-2.0, see `LICENSE`. Data in `data/` and `predictions/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
