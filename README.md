@@ -4,6 +4,8 @@ The posts DEV announced as challenge winners, compared with every other entry in
 
 Made by MV2 of Munim, Inc., with AI agents working in his name. Code: Apache-2.0. Data (`data/`, `predictions/`): CC BY 4.0.
 
+**Latest (2026-10-23):** the pre-registered forecast has now been scored on two Hacktoberfest 2026 rounds. Both times, a ranking committed before DEV named the winners put them far above chance: week 1, 3 of 17 winners in the top 17 (0.16 expected), mean percentile 0.937; week 2, 5 of 18 in the top 18 (0.19 expected), mean percentile 0.964. [Details below.](#week-2-result)
+
 ## Why this is new
 
 Earlier looks at DEV challenges studied winners on their own: who they are, how often they enter ([Datobra, "Who Wins Dev.to Challenges?"](https://www.datobra.com/who-wins-dev-to-challenges-and-the-hidden-benefits-no-one-talks-about-2/), 81 winners), or DEV posts in general ([remdore, "92% of dev.to posts get zero reactions"](https://dev.to/remdore); [marcosgcuenta1, 11,450 DEV articles](https://dev.to/marcosgcuenta1)). We found no study that compares winners with the entries they beat in the same challenge, and none that uses DEV's new `ai_disclosure_level` field.
@@ -35,7 +37,7 @@ Each winner is ranked against the other entries in its own challenge. A percenti
 In short:
 - **Winners are longer and more structured.** 86% of winners are longer than the typical entry in their challenge.
 - **Show it working.** A demo video doubles in frequency among winners (42% vs 21%), and so does a table (29% vs 12%).
-- **When you post doesn't matter.** Winners sit at the middle of their challenge's posting window (0.49).
+- **When you post doesn't matter.** Winners sit at the middle of their challenge's posting window (0.49). (Week 2 of Hacktoberfest 2026 may be an exception: see [Week 2 result](#week-2-result).)
 - **Reactions are not a precondition.** Most entries get almost none: 64% of the 8,320 other entries had 5 reactions or fewer, and 20% had zero. Winners have more, but that count was taken after DEV's announcement sent readers to them, so it can't show that reactions came first. In the October 2026 "Build for a Friend" round, 7 of the 17 winners had 5 reactions or fewer even after the announcement.
 - **Title style barely matters.** A colon or dash is just as common in losing titles.
 
@@ -56,12 +58,11 @@ The pooled `no_ai` line in `REPORT.md` (z = 5.05) rests on three posts, two of t
 
 Hindsight is cheap, so the findings above are now being tested forward. `hf26.py` fits a logistic model on the 55 past challenges (shape only: no reactions, comments or timing), ranks every entry of a live Hacktoberfest 2026 round, and the ranking is committed here **before** DEV announces that round's winners. The protocol and its limits were committed first, in `PREREGISTRATION.md` (release v0.2.0).
 
-The first rankings are in [`predictions/2026-10-14/`](predictions/2026-10-14/), committed before either round's announcement:
-
-| Round | Entries ranked | Winners advertised | Expected in the top-k by chance | Status |
-|---|---|---|---|---|
-| week1 (Touch Grass) | 1,797 | 17 | about 0.16 | **scored 2026-10-17** (below) |
-| week2 (Side Hustle) | 333 (partial) | 18 | about 0.97 | still open at the snapshot; a full ranking follows after the round closes (2026-10-19 07:00 UTC) and before its announcement |
+| Round | Ranking | Entries ranked | Winners advertised | Expected in the top-k by chance | Status |
+|---|---|---|---|---|---|
+| week1 (Touch Grass) | [`predictions/2026-10-14/`](predictions/2026-10-14/) | 1,797 | 17 | about 0.16 | **scored 2026-10-17** (below) |
+| week2 (Side Hustle), early partial | [`predictions/2026-10-14/`](predictions/2026-10-14/) | 333 | 18 | about 0.97 | scored 2026-10-23: no winner was posted by that snapshot (below) |
+| week2 (Side Hustle), full | [`predictions/2026-10-19/`](predictions/2026-10-19/) | 1,663 | 18 | about 0.19 | **scored 2026-10-23** (below) |
 
 Left out one challenge at a time, the model put past winners at a mean percentile of 0.78 (0.75 to 0.81) and 151 of 323 winners in their challenge's top-k against 77 by chance. That backtest ranks winners against small sampled fields; the live test ranks them against every entry, so it is much harder. Each round's result is added here when DEV announces its winners, whatever it shows.
 
@@ -82,7 +83,28 @@ That is far above chance, and above the backtest's 0.78. But it is one round, an
 
 Winner ranks, the scorer's output and the reading described below: [`predictions/2026-10-14/SCORE.md`](predictions/2026-10-14/SCORE.md) and `score_week1.json`.
 
-How it was scored. The scoring function (`hf26.score_predictions`) and the committed ranking are unchanged; only the step that reads the winners differs from `hf26.py score --announcement auto`, in `score_w1.py`:
+### Week 2 result
+
+DEV announced the 18 Side Hustle winners on 2026-10-23 at 20:18 UTC (article 4907389). The frozen `score_round.py` 0.1.0, checked byte-identical to the committed copy before it ran, scored both committed rankings 54 minutes later (job hf26-score-w2-v1). Status `scored`, no flags: 18 winner links under the winner headings, as advertised, none renamed or unresolved. Nothing was read or fixed by hand.
+
+Full ranking (committed 2026-10-19 10:12 UTC, after the round closed and four days before the announcement):
+
+| Ordering | Winners in the top 18 | Expected by chance | Mean winner percentile (0.50 = no signal) |
+|---|---|---|---|
+| Logistic model (primary) | **5** | 0.19 | **0.964** |
+| rank_score baseline | 3 | 0.19 | 0.954 |
+
+All 18 winners were in the ranking. Logistic winner ranks, of 1,663: 2, 3, 11, 12, 15, 22, 24, 28, 29, 34, 44, 54, 57, 78, 92, 161, 186, 257. The middle two sit at ranks 29 and 34, 16 of the 18 are in the top tenth, and all 18 are in the top 257. As in week 1, none of 200,000 random placements reached a mean percentile this high (not pre-registered).
+
+The early partial ranking (333 entries, snapshot 2026-10-14 16:48 UTC) holds **none** of the 18 winners, so it has nothing to score. That is not a miss by the model. The winner with the lowest article id (4852284) was created at 18:50 UTC that day and published at 19:04 UTC, after the snapshot. DEV's article ids grow with creation time, so every other winner came later still. The snapshot held about 20% of the round's ranked entries. If winners were spread evenly across entries, all 18 falling outside it would happen about 1.8% of the time. That number was worked out after the fact, for one round, and it sits oddly next to the 0.49 timing finding above, so treat it as a question rather than a result. A follow-up check, which ranks every winner's publish time among its round's entries for weeks 1 and 2, will be added here with its code.
+
+**Two rounds.** The pre-registration's bar was "winners in the top-k clearly above chance, in more than one round". Both rounds clear it: 8 of 35 winners in the top-k against about 0.35 by chance, and mean percentiles of 0.937 and 0.964 against 0.50. The bar was not set as a number, so this is a reading of it, not a p-value. Its limits still apply: the model reads shape, never substance. Weeks 3 and 4 will be ranked and scored the same way.
+
+Scorer output: [`predictions/2026-10-19/SCORE_week2_full.md`](predictions/2026-10-19/SCORE_week2_full.md) and `score_week2_full.json`; partial: [`predictions/2026-10-14/SCORE_week2_partial.md`](predictions/2026-10-14/SCORE_week2_partial.md) and `score_week2_partial.json`.
+
+### How week 1 was scored
+
+The scoring function (`hf26.score_predictions`) and the committed ranking are unchanged; only the step that reads the winners differs from `hf26.py score --announcement auto`, in `score_w1.py`:
 - The automatic run (job hf26-score-w1-v1) stopped with "announcement not readable": DEV's API returned 404 for the announcement's id, most likely a stale edge-cached response. `score_w1.py` adds a per-run `item` token to every request.
 - The committed extractor reads every dev.to link in the announcement, which adds 3 posts the intro mentions as examples, not winners. `score_w1.py` reads only links under the winner headings and checks the count against the 17 DEV advertised. The committed extractor's reading is kept in `score_week1.json` (`committed_extractor`: 20 posts, logistic 5 in the top 20 against 0.22 by chance, mean percentile 0.931).
 - A first version (job hf26-score-w1-v2) found only 16 of the 17 winners: the announcement embeds the overall winner under the author's earlier username, which the API no longer resolves. Version 0.2.0 retries such a link under the username the announcement's HTML uses for the identical slug, and lists each case in `renamed_links` (one here).
@@ -117,11 +139,12 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 - `data/challenges.json`: per challenge, the announcement, chosen tag, window, field size, sample size and AI-disclosure counts.
 - `data/posts.csv`: one row per post (article id, never a username) with every measured feature.
 - `hf26.py`, `test_hf26.py`, `PREREGISTRATION.md`: the forward test (`snapshot`, `predict`, `score`) and its protocol.
+- `snapshot_w2.py`, `test_snapshot_w2.py`: the full week-2 snapshot (see `predictions/2026-10-19/README.md`).
 - `score_w1.py`, `test_score_w1.py`: the week-1 scorer described above. `python score_w1.py --predictions predictions/2026-10-14/predictions_week1.csv --out score_week1.json --md SCORE.md`
 - `score_round.py`, `test_score_round.py`, `check_rescore.py`, `SCORING.md`: the frozen scorer for week 2 onward, its tests, the week-1 reproduction check, and what is frozen. `python score_round.py --round week2 --predictions <ranking> --out score_week2.json --md SCORE_week2.md`
 - `checks/2026-10-17/`: the run that checked `score_round.py` before it was committed (week-1 rescore, weekend winners, week 2 not yet announced).
-- `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report, and once scored, `SCORE.md` and `score_<round>.json`.
+- `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report, and once scored, the scorer's Markdown and JSON output.
 
 ## Licence
 
-Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `score_w1.py`, `test_score_w1.py`, `score_round.py`, `test_score_round.py`, `check_rescore.py`): Apache-2.0, see `LICENSE`. Data in `data/`, `predictions/` and `checks/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
+Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `snapshot_w2.py`, `test_snapshot_w2.py`, `score_w1.py`, `test_score_w1.py`, `score_round.py`, `test_score_round.py`, `check_rescore.py`): Apache-2.0, see `LICENSE`. Data in `data/`, `predictions/` and `checks/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
