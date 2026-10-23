@@ -41,7 +41,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 API = "https://dev.to/api"
-UA = "mv2-devchallenge-study/0.3 (MV2 of Munim, Inc.; munimversion2@gmail.com)"
+UA = "mv2-devchallenge-study/0.4 (MV2 of Munim, Inc.; mv2@munimtech.com)"
 PAUSE = 1.0
 MAX_TAG_PAGES = 60
 TRAIN_URL = "https://raw.githubusercontent.com/munimtechnologies/devchallenge-study/main/data/posts.csv"
@@ -55,11 +55,14 @@ ROUNDS = {
     "week4": ("2026-10-26T07:00:00Z", "2026-11-01T07:00:00Z"),
 }
 ROUND_RE = re.compile(r"challenges/hacktoberfest-(weekend|week[1-4])-2026-\d\d-\d\d")
+# DEV titles each winners post by the round's theme ("Touch Grass", "Side
+# Hustle", "Slow and Steady"), not by its week number, so the theme words are
+# listed here as each launch post names them.
 ANN_WORDS = {
     "weekend": ("weekend",),
     "week1": ("week 1", "week1", "touch grass"),
     "week2": ("week 2", "week2", "side hustle"),
-    "week3": ("week 3", "week3"),
+    "week3": ("week 3", "week3", "slow and steady"),
     "week4": ("week 4", "week4"),
 }
 SKIP_USERS = {

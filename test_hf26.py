@@ -38,6 +38,21 @@ class RoundTests(unittest.TestCase):
         self.assertIsNone(hf26.announcement_round("Join the Hacktoberfest Week 1: $2,450 in prizes across 17 winners"))
         self.assertIsNone(hf26.announcement_round("Congrats to the Summer Bug Smash Winners!"))
 
+    def test_announcement_round_by_theme_words(self):
+        # DEV's real winners posts name the theme, not the week number: week 1 was
+        # "Congrats to the Hacktoberfest Open-Source AI Challenge: Touch Grass Winners!"
+        # (devteam id 4863823, 2026-10-16). Week 3's theme is "Slow and Steady"
+        # (launch post id 4879459, 2026-10-19), so its winners post must map to week3.
+        week1 = "Congrats to the Hacktoberfest Open-Source AI Challenge: Touch Grass Winners!"
+        week2 = "Congrats to the Hacktoberfest Open-Source AI Challenge: Side Hustle Winners!"
+        week3 = "Congrats to the Hacktoberfest Open-Source AI Challenge: Slow and Steady Winners!"
+        self.assertEqual(hf26.announcement_round(week1), "week1")
+        self.assertEqual(hf26.announcement_round(week2), "week2")
+        self.assertEqual(hf26.announcement_round(week3), "week3")
+        # The launch post for the same theme is not an announcement.
+        self.assertIsNone(hf26.announcement_round(
+            "Join the Hacktoberfest Open-Source AI Challenge: Slow and Steady! $2,850 in Prizes Across 21 Winners."))
+
 
 class FeatureTests(unittest.TestCase):
     def test_body_features(self):
@@ -194,6 +209,25 @@ class AnnouncedStub(StubClient):
         return None
 
 
+class Week3AnnouncedStub(StubClient):
+    """DEV after a theme-titled week-3 announcement; the launch post is listed too."""
+
+    def get(self, path, tries=6):
+        self.requests += 1
+        if path.startswith("/articles?username=devteam"):
+            return [{"id": 950, "title": "Congrats to the Hacktoberfest Open-Source AI Challenge: Slow and Steady Winners!",
+                     "published_at": "2026-10-28T19:00:00Z"},
+                    {"id": 4879459, "title": "Join the Hacktoberfest Open-Source AI Challenge: Slow and Steady! "
+                                             "$2,850 in Prizes Across 21 Winners.",
+                     "published_at": "2026-10-19T20:07:12Z"}]
+        if path == "/articles/950":
+            return {"id": 950, "published_at": "2026-10-28T19:00:00Z",
+                    "body_html": '<a href="https://dev.to/alice/first-post-1a">x</a>'}
+        if path == "/articles/alice/first-post-1a":
+            return {"id": 30}
+        return None
+
+
 def write_predictions(path):
     with open(path, "w", newline="", encoding="utf-8") as f:
         wr = csv.DictWriter(f, fieldnames=["rank", "article_id", "score", "rank_score"])
@@ -223,13 +257,13 @@ class SnapshotTests(unittest.TestCase):
 
 
 class ScoreTests(unittest.TestCase):
-    def run_score(self, client_cls):
+    def run_score(self, client_cls, rnd="week1"):
         with tempfile.TemporaryDirectory() as d:
-            preds = os.path.join(d, "predictions_week1.csv")
+            preds = os.path.join(d, f"predictions_{rnd}.csv")
             write_predictions(preds)
             out = os.path.join(d, "score.json")
             with mock.patch.object(hf26, "Client", client_cls):
-                code = hf26.main(["score", "--predictions", preds, "--round", "week1",
+                code = hf26.main(["score", "--predictions", preds, "--round", rnd,
                                   "--out", out, "--pause", "0"])
             with open(out, encoding="utf-8") as f:
                 return code, json.load(f)
@@ -251,6 +285,16 @@ class ScoreTests(unittest.TestCase):
         self.assertEqual(res["logistic"]["winner_ranks"], [3])
         self.assertEqual(res["logistic"]["hits_top_k"], 0)
         self.assertEqual(res["rank_score"]["winner_ranks"], [2])
+
+    def test_auto_finds_week3_by_theme_and_skips_launch_post(self):
+        code, res = self.run_score(Week3AnnouncedStub, rnd="week3")
+        self.assertEqual(code, 0)
+        self.assertEqual(res["status"], "scored")
+        self.assertEqual(res["announcement_id"], 950)
+        self.assertEqual(res["winner_ids"], [30])
+        # The week-3 launch post is in the listing but is never taken for week 1 or 2 either.
+        code2, res2 = self.run_score(Week3AnnouncedStub, rnd="week2")
+        self.assertEqual(res2["status"], "not_announced")
 
     def test_auto_needs_round(self):
         with mock.patch.object(hf26, "Client", StubClient):
