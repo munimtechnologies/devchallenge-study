@@ -77,6 +77,23 @@ class Embeds(unittest.TestCase):
         md = "Intro [x](https://dev.to/alice/a-post-1)\n{% embed https://dev.to/Bob/b-post-2 %}\n"
         self.assertEqual(oos.embedded_keys(md), {("bob", "b-post-2")})
 
+    def test_hyphenated_username_card(self):
+        # 0.1.0 missed this shape: the Sanity Challenge's fifth card winner (ERRATUM_LINKS.md).
+        md = "{% embed https://dev.to/jo-ann/post-1abc %}\n"
+        self.assertEqual(oos.embedded_keys(md), {("jo-ann", "post-1abc")})
+
+
+class Winners(unittest.TestCase):
+    def test_resolve_reads_hyphenated_usernames(self):
+        class Fake:
+            def get(self, path):
+                return {"/articles/jo-ann/post-1abc": {"id": 4797565},
+                        "/articles/alice/a-post-1": {"id": 11}}.get(path)
+
+        a = {"body_html": "", "body_markdown": "[x](https://dev.to/alice/a-post-1)\n"
+                                               "{% embed https://dev.to/jo-ann/post-1abc %}\n"}
+        self.assertEqual(oos.resolve_winners(Fake(), a), ([11, 4797565], [4797565]))
+
 
 if __name__ == "__main__":
     unittest.main()

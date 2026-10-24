@@ -1,0 +1,784 @@
+{
+  "version": "0.1.0",
+  "links_version": "0.1.0",
+  "run_at": "2026-10-24T16:08:13+00:00",
+  "announcements": 63,
+  "announcements_read": 63,
+  "training_read": 60,
+  "links_count_matches": 60,
+  "announcements_with_missed": 2,
+  "missed_links": 2,
+  "missed_winners": 2,
+  "fixes": 1,
+  "announcements_detail": [
+    {
+      "announcement_id": 2186281,
+      "label": "training",
+      "title": "Congrats to the DevCycle Feature Flag Challenge Winners!",
+      "announced": "2025-01-02T19:27:18Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2196436,
+      "label": "training",
+      "title": "Congrats to the Frontend Challenge: December Edition Winners!",
+      "announced": "2025-01-09T15:48:51Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 2197849,
+      "label": "training",
+      "title": "Congrats to the Bright Data Web Scraping Challenge Winners!",
+      "announced": "2025-01-09T21:19:32Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2236718,
+      "label": "training",
+      "title": "Congrats to the GitHub Copilot 1-Day Build Challenge Winners!",
+      "announced": "2025-01-23T19:15:03Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2249349,
+      "label": "training",
+      "title": "Congrats to the Agent.ai Challenge Winners!",
+      "announced": "2025-01-30T16:36:37Z",
+      "old_links": 8,
+      "new_links": 8,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 8
+    },
+    {
+      "announcement_id": 2275913,
+      "label": "training",
+      "title": "Congrats to the New Year Writing challenge Winners!",
+      "announced": "2025-02-13T15:37:14Z",
+      "old_links": 5,
+      "new_links": 6,
+      "missed": [
+        {
+          "article_id": 2190411,
+          "rule": "winner",
+          "card": true,
+          "published_at": "2025-01-10T22:42:02Z",
+          "posts_csv": null,
+          "challenge_kept": true
+        }
+      ],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 2314962,
+      "label": "training",
+      "title": "Congrats to the Frontend Challenge: February Edition Winners!",
+      "announced": "2025-03-06T13:55:02Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2378824,
+      "label": "training",
+      "title": "Congrats to the KendoReact Free Components Challenge Winners!",
+      "announced": "2025-04-03T19:01:39Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2411516,
+      "label": "training",
+      "title": "Congrats to the Pulumi Deploy and Document Challenge Winners!",
+      "announced": "2025-04-17T14:27:51Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2414108,
+      "label": "training",
+      "title": "Congrats to the winners of our first-ever WeCoded Challenge!",
+      "announced": "2025-04-17T20:15:50Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 2468853,
+      "label": "training",
+      "title": "Congrats to the Alibaba Cloud Web Game Challenge Winners!",
+      "announced": "2025-05-08T14:33:07Z",
+      "old_links": 4,
+      "new_links": 4,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 4
+    },
+    {
+      "announcement_id": 2491482,
+      "label": "training",
+      "title": "Congrats to the Permit.io Authorization Challenge Winners!",
+      "announced": "2025-05-15T17:51:22Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2512119,
+      "label": "training",
+      "title": "Congrats to the Amazon Q Developer \"Quack The Code\" Challenge Winners!",
+      "announced": "2025-05-22T14:30:10Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2582669,
+      "label": "training",
+      "title": "Congratulations to the winner of the Bright Data Real-Time AI Agents Challenge!",
+      "announced": "2025-06-10T16:52:19Z",
+      "old_links": 1,
+      "new_links": 1,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 1
+    },
+    {
+      "announcement_id": 2618815,
+      "label": "training",
+      "title": "Congrats to the Winners of Postmark Challenge: Inbox Innovators!",
+      "announced": "2025-06-24T16:35:39Z",
+      "old_links": 4,
+      "new_links": 4,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 4
+    },
+    {
+      "announcement_id": 2675369,
+      "label": "training",
+      "title": "Congrats to the Storyblok Headless CMS Challenge Winners!",
+      "announced": "2025-07-10T15:27:39Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 2676204,
+      "label": "training",
+      "title": "Congrats to the Frontend Challenge: June Celebrations Winners!",
+      "announced": "2025-07-10T22:27:19Z",
+      "old_links": 6,
+      "new_links": 6,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 6
+    },
+    {
+      "announcement_id": 2700498,
+      "label": "training",
+      "title": "Congrats to the Runner H \"AI Agent Prompting\" Challenge Winners!",
+      "announced": "2025-07-17T20:40:12Z",
+      "old_links": 20,
+      "new_links": 20,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 20
+    },
+    {
+      "announcement_id": 2722929,
+      "label": "training",
+      "title": "Congratulations to the World's Largest Hackathon Winners! Now it's time to share your full reflection.",
+      "announced": "2025-07-28T17:59:14Z",
+      "old_links": 0,
+      "new_links": 0,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 0
+    },
+    {
+      "announcement_id": 2758593,
+      "label": "training",
+      "title": "Congrats to the AssemblyAI Voice Agents Challenge Winners!",
+      "announced": "2025-08-07T16:37:17Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2758918,
+      "label": "training",
+      "title": "Congrats to the Algolia MCP Challenge Winners!",
+      "announced": "2025-08-07T21:43:11Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2774328,
+      "label": "training",
+      "title": "Congrats to the Frontend Challenge: Office Edition Winners!",
+      "announced": "2025-08-14T17:36:43Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 2787824,
+      "label": "training",
+      "title": "Congrats to the Redis AI Challenge Winners!",
+      "announced": "2025-08-21T15:45:13Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 2788322,
+      "label": "training",
+      "title": "Congrats to the World's Largest Hackathon Writing Challenge Winners!",
+      "announced": "2025-08-21T20:58:35Z",
+      "old_links": 10,
+      "new_links": 10,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 10
+    },
+    {
+      "announcement_id": 2839774,
+      "label": "training",
+      "title": "Congrats to the Winners of the Real-Time AI Agents Challenge powered by n8n and Bright Data!",
+      "announced": "2025-09-11T20:24:46Z",
+      "old_links": 5,
+      "new_links": 5,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 2854385,
+      "label": "training",
+      "title": "Congrats to the Midnight Network \"Privacy First\" Challenge Winners!",
+      "announced": "2025-09-18T19:32:24Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2883222,
+      "label": "training",
+      "title": "Congrats to the Google AI Multimodal Challenge Winners!",
+      "announced": "2025-10-02T17:08:53Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2908823,
+      "label": "training",
+      "title": "Congrats to the latest KendoReact Free Components Challenge Winners!",
+      "announced": "2025-10-09T16:24:34Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2920457,
+      "label": "training",
+      "title": "Congrats to the Heroku \"Back to School\" AI Challenge Winners!",
+      "announced": "2025-10-13T14:28:12Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 2999273,
+      "label": "training",
+      "title": "Congrats to the Winners of the Auth0 for AI Agents Challenge!",
+      "announced": "2025-11-06T23:16:49Z",
+      "old_links": 4,
+      "new_links": 4,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 4
+    },
+    {
+      "announcement_id": 3042509,
+      "label": "training",
+      "title": "Congrats to the 2025 Hacktoberfest Writing Challenge Winners!",
+      "announced": "2025-11-20T19:15:18Z",
+      "old_links": 15,
+      "new_links": 15,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 15
+    },
+    {
+      "announcement_id": 3077942,
+      "label": "training",
+      "title": "Congrats to the Winners of the Agentic Postgres Challenge with Tiger Data!",
+      "announced": "2025-12-01T23:34:52Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 3114021,
+      "label": "training",
+      "title": "Congrats to the Frontend Challenge: Halloween Edition Winners!",
+      "announced": "2025-12-18T20:41:18Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 3113758,
+      "label": "training",
+      "title": "Congrats to the Winners of the AI Challenge for Cross-Platform Apps!",
+      "announced": "2025-12-19T15:19:05Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 3141545,
+      "label": "training",
+      "title": "Congrats to the Xano AI-Powered Backend Challenge Winners!",
+      "announced": "2026-01-01T19:18:26Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 3156178,
+      "label": "training",
+      "title": "Congrats to the AI Agents Intensive Course Writing Challenge Winners!",
+      "announced": "2026-01-08T18:04:01Z",
+      "old_links": 5,
+      "new_links": 5,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 3191956,
+      "label": "training",
+      "title": "Congrats to the Winners of the \"Worldwide Show and Tell Challenge\" Presented by Mux!",
+      "announced": "2026-01-22T22:20:33Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 3266739,
+      "label": "training",
+      "title": "Congrats to the \"New Year, New You\" Portfolio Challenge Winners and Runner-Ups!",
+      "announced": "2026-02-19T20:34:23Z",
+      "old_links": 8,
+      "new_links": 8,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 8
+    },
+    {
+      "announcement_id": 3309203,
+      "label": "training",
+      "title": "Congrats to the Algolia Agent Studio Challenge Winners!",
+      "announced": "2026-03-04T18:25:32Z",
+      "old_links": 4,
+      "new_links": 4,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 4
+    },
+    {
+      "announcement_id": 3331372,
+      "label": "training",
+      "title": "Congrats to the GitHub Copilot CLI Challenge Winners!",
+      "announced": "2026-03-09T18:28:59Z",
+      "old_links": 28,
+      "new_links": 28,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 28
+    },
+    {
+      "announcement_id": 3369046,
+      "label": "training",
+      "title": "Congrats to the \"Built with Google Gemini: Writing Challenge\" Winners!",
+      "announced": "2026-03-19T19:31:58Z",
+      "old_links": 5,
+      "new_links": 5,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 3373345,
+      "label": "training",
+      "title": "Congrats to the Winners of Our First DEV Weekend Challenge!",
+      "announced": "2026-03-19T20:26:57Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 3506618,
+      "label": "training",
+      "title": "Congrats to the 2026 WeCoded Challenge Winners!",
+      "announced": "2026-04-16T21:34:36Z",
+      "old_links": 6,
+      "new_links": 6,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 6
+    },
+    {
+      "announcement_id": 3516155,
+      "label": "training",
+      "title": "Congrats to the Notion MCP Challenge Winners!",
+      "announced": "2026-04-17T16:30:22Z",
+      "old_links": 3,
+      "new_links": 3,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 3
+    },
+    {
+      "announcement_id": 3542971,
+      "label": "training",
+      "title": "Congrats to the April Fools Challenge Winners!!",
+      "announced": "2026-04-23T20:47:21Z",
+      "old_links": 6,
+      "new_links": 6,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 6
+    },
+    {
+      "announcement_id": 3593416,
+      "label": "training",
+      "title": "Announcing the Winners of the DEV Weekend Challenge: Earth Day Edition \ud83c\udf0d",
+      "announced": "2026-04-30T21:25:40Z",
+      "old_links": 11,
+      "new_links": 11,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 11
+    },
+    {
+      "announcement_id": 3627978,
+      "label": "training",
+      "title": "Congrats to the Google Cloud NEXT '26 Writing Challenge Winners!",
+      "announced": "2026-05-07T18:48:04Z",
+      "old_links": 6,
+      "new_links": 6,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 6
+    },
+    {
+      "announcement_id": 3629085,
+      "label": "training",
+      "title": "Congrats to the OpenClaw Challenge Winners!",
+      "announced": "2026-05-07T21:27:14Z",
+      "old_links": 6,
+      "new_links": 6,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 6
+    },
+    {
+      "announcement_id": 3875595,
+      "label": "training",
+      "title": "Congrats to the Google I/O 2026 Writing Challenge Winners!",
+      "announced": "2026-06-11T15:38:46Z",
+      "old_links": 5,
+      "new_links": 5,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 3934585,
+      "label": "training",
+      "title": "Congrats to the Gemma 4 Challenge Winners!",
+      "announced": "2026-06-18T18:56:22Z",
+      "old_links": 15,
+      "new_links": 15,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 15
+    },
+    {
+      "announcement_id": 3935459,
+      "label": "training",
+      "title": "Congrats to the Hermes Agent Challenge Winners!",
+      "announced": "2026-06-18T22:13:44Z",
+      "old_links": 12,
+      "new_links": 12,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 12
+    },
+    {
+      "announcement_id": 4054555,
+      "label": "training",
+      "title": "Congrats to the GitHub Finish-Up-A-Thon Challenge Winners!",
+      "announced": "2026-07-02T22:04:04Z",
+      "old_links": 10,
+      "new_links": 10,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 10
+    },
+    {
+      "announcement_id": 4108558,
+      "label": "training",
+      "title": "Congrats to the June Solstice Game Jam Winners!",
+      "announced": "2026-07-09T20:23:01Z",
+      "old_links": 5,
+      "new_links": 5,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 4274330,
+      "label": "training",
+      "title": "Congrats to the DEV Weekend Challenge: Passion Edition Winners!",
+      "announced": "2026-07-30T20:24:25Z",
+      "old_links": 5,
+      "new_links": 5,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 4625271,
+      "label": "training",
+      "title": "Congrats to the Frontend Challenge: Comfort Food Edition Winners!",
+      "announced": "2026-09-10T18:23:05Z",
+      "old_links": 2,
+      "new_links": 2,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 2
+    },
+    {
+      "announcement_id": 4679179,
+      "label": "training",
+      "title": "Congrats to the DEV Weekend Challenge: Dog Days Edition Winners!",
+      "announced": "2026-09-17T20:22:43Z",
+      "old_links": 5,
+      "new_links": 5,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 5
+    },
+    {
+      "announcement_id": 4735686,
+      "label": "training",
+      "title": "Congrats to the Summer Bug Smash Winners!",
+      "announced": "2026-09-24T19:32:35Z",
+      "old_links": 23,
+      "new_links": 23,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 23
+    },
+    {
+      "announcement_id": 4784422,
+      "label": "training",
+      "title": "Congrats to the DEV Weekend Challenge: Generosity Edition Winners!",
+      "announced": "2026-10-01T21:44:54Z",
+      "old_links": 8,
+      "new_links": 8,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 8
+    },
+    {
+      "announcement_id": 4824129,
+      "label": "training",
+      "title": "Congrats to Our First MLH x DEV Writing Challenge Winner!",
+      "announced": "2026-10-09T18:56:35Z",
+      "old_links": 1,
+      "new_links": 1,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 1
+    },
+    {
+      "announcement_id": 4825130,
+      "label": "training",
+      "title": "Congrats to the Hacktoberfest Weekend Challenge: Build for a Friend Winners!",
+      "announced": "2026-10-09T19:32:27Z",
+      "old_links": 17,
+      "new_links": 17,
+      "missed": [],
+      "status": "ok",
+      "challenges_json_links": 17
+    },
+    {
+      "announcement_id": 4863823,
+      "label": "Hacktoberfest week 1 (forward test)",
+      "title": "Congrats to the Hacktoberfest Open-Source AI Challenge: Touch Grass Winners!",
+      "announced": "2026-10-16T17:38:26Z",
+      "old_links": 21,
+      "new_links": 21,
+      "missed": [],
+      "status": "ok"
+    },
+    {
+      "announcement_id": 4907389,
+      "label": "Hacktoberfest week 2 (forward test)",
+      "title": "Congrats to the Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle Winners!",
+      "announced": "2026-10-23T20:18:31Z",
+      "old_links": 18,
+      "new_links": 18,
+      "missed": [],
+      "status": "ok"
+    },
+    {
+      "announcement_id": 4897896,
+      "label": "Sanity Challenge (out of sample)",
+      "title": "Congrats to the Sanity Challenge Winners!",
+      "announced": "2026-10-22T15:53:41Z",
+      "old_links": 6,
+      "new_links": 7,
+      "missed": [
+        {
+          "article_id": 4797565,
+          "rule": "winner",
+          "card": true,
+          "published_at": "2026-10-04T20:46:15Z",
+          "posts_csv": null,
+          "challenge_kept": false
+        }
+      ],
+      "status": "ok"
+    }
+  ],
+  "backtest": {
+    "committed": {
+      "logistic": {
+        "challenges": 55,
+        "winners": 323,
+        "mean_winner_percentile": 0.781,
+        "ci95": [
+          0.75,
+          0.813
+        ],
+        "hits_top_k": 151,
+        "expected_hits_if_random": 77.3
+      },
+      "rank": {
+        "challenges": 55,
+        "winners": 323,
+        "mean_winner_percentile": 0.755,
+        "ci95": [
+          0.724,
+          0.787
+        ],
+        "hits_top_k": 142,
+        "expected_hits_if_random": 77.3
+      }
+    },
+    "corrected": {
+      "logistic": {
+        "challenges": 55,
+        "winners": 324,
+        "mean_winner_percentile": 0.782,
+        "ci95": [
+          0.75,
+          0.813
+        ],
+        "hits_top_k": 151,
+        "expected_hits_if_random": 77.6
+      },
+      "rank": {
+        "challenges": 55,
+        "winners": 324,
+        "mean_winner_percentile": 0.756,
+        "ci95": [
+          0.725,
+          0.787
+        ],
+        "hits_top_k": 143,
+        "expected_hits_if_random": 77.6
+      }
+    },
+    "weight_change": 0.0156,
+    "changes": [
+      {
+        "challenge_id": 2275913,
+        "article_id": 2190411,
+        "action": "added",
+        "before": null
+      }
+    ]
+  },
+  "requests": 69,
+  "minutes": 4.2
+}

@@ -1,0 +1,135 @@
+{
+  "version": "0.1.1",
+  "links_version": "0.1.0",
+  "run_at": "2026-10-24T16:02:01+00:00",
+  "training_cutoff": "2026-10-09T19:32:27+00:00",
+  "model": {
+    "train_challenges": 55,
+    "train_rows": 1893,
+    "train_winners": 323,
+    "train_article_ids_known": true
+  },
+  "model_check": 0.0,
+  "challenges": [
+    {
+      "announcement_id": 4897896,
+      "title": "Congrats to the Sanity Challenge Winners!",
+      "announced": "2026-10-22T15:53:41Z",
+      "tag": "sanitychallenge",
+      "listed": 339,
+      "skipped": {
+        "official": 1,
+        "after_announcement": 1,
+        "no_devchallenge_tag": 34,
+        "not_english": 0,
+        "in_training_data": 0,
+        "no_body": 0,
+        "edited_after_announcement": 0
+      },
+      "entries": 303,
+      "status": "scored",
+      "winner_ids": {
+        "linked": [
+          4776349,
+          4705478,
+          4797849,
+          4708598,
+          4796121,
+          4797565,
+          4779485
+        ],
+        "embedded": [
+          4797849,
+          4708598,
+          4796121,
+          4797565,
+          4779485
+        ]
+      },
+      "scores": {
+        "linked": {
+          "logistic": {
+            "ranked_entries": 303,
+            "winners_announced": 7,
+            "winners_in_ranking": 7,
+            "missing_from_ranking": [],
+            "hits_top_k": 2,
+            "expected_hits_if_random": 0.16,
+            "mean_winner_percentile": 0.888,
+            "winner_ranks": [
+              3,
+              5,
+              9,
+              20,
+              22,
+              26,
+              159
+            ],
+            "p_hits_at_least": 0.00912,
+            "p_mean_percentile_at_least": 6e-05
+          },
+          "rank_score": {
+            "ranked_entries": 303,
+            "winners_announced": 7,
+            "winners_in_ranking": 7,
+            "missing_from_ranking": [],
+            "hits_top_k": 2,
+            "expected_hits_if_random": 0.16,
+            "mean_winner_percentile": 0.845,
+            "winner_ranks": [
+              6,
+              7,
+              12,
+              25,
+              46,
+              49,
+              189
+            ],
+            "p_hits_at_least": 0.00912,
+            "p_mean_percentile_at_least": 0.000335
+          }
+        },
+        "embedded": {
+          "logistic": {
+            "ranked_entries": 303,
+            "winners_announced": 5,
+            "winners_in_ranking": 5,
+            "missing_from_ranking": [],
+            "hits_top_k": 2,
+            "expected_hits_if_random": 0.08,
+            "mean_winner_percentile": 0.962,
+            "winner_ranks": [
+              3,
+              5,
+              9,
+              20,
+              26
+            ],
+            "p_hits_at_least": 0.00214,
+            "p_mean_percentile_at_least": 0.0
+          },
+          "rank_score": {
+            "ranked_entries": 303,
+            "winners_announced": 5,
+            "winners_in_ranking": 5,
+            "missing_from_ranking": [],
+            "hits_top_k": 0,
+            "expected_hits_if_random": 0.08,
+            "mean_winner_percentile": 0.912,
+            "winner_ranks": [
+              6,
+              12,
+              25,
+              46,
+              49
+            ],
+            "p_hits_at_least": 1.0,
+            "p_mean_percentile_at_least": 0.000105
+          }
+        }
+      }
+    }
+  ],
+  "requests": 329,
+  "minutes": 13.6
+}

@@ -15,6 +15,10 @@ measured as edited (the count is reported).
 Winners follow the study's convention (every entry linked from the announcement, as in the backtest and
 score_round.py); a second count uses only posts embedded as cards. Outputs hold article ids and measured
 features, never usernames. Made by MV2 of Munim, Inc., with AI agents working in his name.
+
+0.1.1 reads winner links with links.py, which also reads usernames containing a hyphen; 0.1.0 used
+hf26.extract_links and missed one of the Sanity Challenge's five card winners (ERRATUM_LINKS.md).
+Nothing else changed.
 """
 import argparse
 import csv
@@ -29,8 +33,9 @@ import urllib.request
 from datetime import timedelta
 
 import hf26
+import links
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 WINDOW_DAYS = 120  # same as the backtest's rule for a linked post to count as a winner
 DRAWS = 200000
 # Tags too broad to be a challenge's own tag.
@@ -85,7 +90,7 @@ def challenge_tag(tags):
 
 
 def embedded_keys(markdown):
-    return {(u.lower(), s.lower()) for u, s in hf26.LIQUID_RE.findall(markdown or "")}
+    return links.embedded_keys(markdown)
 
 
 def hits_tail(n, k, h):
@@ -202,10 +207,10 @@ def field_rows(client, tag, announced, train_ids, budget_s, t0):
 
 
 def resolve_winners(client, ann):
-    links = hf26.extract_links(ann.get("body_html"), ann.get("body_markdown"))
+    found = links.extract_links(ann.get("body_html"), ann.get("body_markdown"))
     cards = embedded_keys(ann.get("body_markdown"))
     linked, embedded = [], []
-    for user, slug in links:
+    for user, slug in found:
         w = client.get(f"/articles/{urllib.parse.quote(user)}/{urllib.parse.quote(slug)}")
         if isinstance(w, dict) and w.get("id"):
             wid = int(w["id"])
@@ -246,7 +251,8 @@ def report(result):
             "- Entries: English posts with the challenge tag and devchallenge, published in the 120 days before "
             "the announcement, DEV's own posts and training-data posts left out.",
             "- Chance for top-k is k*k/n; P(at least) is the exact hypergeometric tail; the last column uses "
-            f"{DRAWS:,} random sets.", ""]
+            f"{DRAWS:,} random sets.",
+            f"- Winner links are read with links.py {links.VERSION}, which also reads usernames containing a hyphen.", ""]
     for c in result["challenges"]:
         if c.get("status") == "scored":
             out.append(f"- {c['tag']}: listed {c['listed']}, left out or flagged {json.dumps(c['skipped'])}; "
@@ -268,14 +274,15 @@ def main(argv=None):
         cutoff = training_cutoff(json.load(f))
     w, model, train_ids = fit_model(a.train)
     check = compare_model(w, a.model_check)
-    hf26.log(f"oos.py {VERSION}; cutoff {cutoff.isoformat()}; model {json.dumps(model)}; weight diff {check}")
+    hf26.log(f"oos.py {VERSION}; links.py {links.VERSION}; cutoff {cutoff.isoformat()}; model {json.dumps(model)}; "
+             f"weight diff {check}")
     client = BustedClient()
     devteam = client.get("/articles?username=devteam&per_page=100&page=1") or []
     anns = select_announcements(devteam, cutoff)
     hf26.log(f"{len(anns)} announcement(s) after the cutoff: {[x['title'] for x in anns]}")
-    result = {"version": VERSION, "run_at": hf26.now_iso(), "training_cutoff": cutoff.isoformat(),
-              "model": model, "model_check": check if check is not None else "model.json not committed",
-              "challenges": []}
+    result = {"version": VERSION, "links_version": links.VERSION, "run_at": hf26.now_iso(),
+              "training_cutoff": cutoff.isoformat(), "model": model,
+              "model_check": check if check is not None else "model.json not committed", "challenges": []}
     for i, short in enumerate(anns):
         ann = client.get(f"/articles/{short['id']}")
         c = {"announcement_id": short["id"], "title": short["title"], "announced": short["published_at"]}
