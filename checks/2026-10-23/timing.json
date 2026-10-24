@@ -1,0 +1,95 @@
+{
+  "version": "0.1.0",
+  "pre_registered": false,
+  "rounds": {
+    "week1": {
+      "ranked_entries": 1797,
+      "winners_announced": 17,
+      "winners_timed": 17,
+      "missing": [],
+      "mean_time_percentile": 0.5567,
+      "null_95_interval": [
+        0.3628,
+        0.6372
+      ],
+      "winner_time_percentiles": [
+        0.0095,
+        0.0139,
+        0.2372,
+        0.3569,
+        0.3586,
+        0.3781,
+        0.4182,
+        0.5028,
+        0.5607,
+        0.6019,
+        0.7589,
+        0.8402,
+        0.8463,
+        0.8842,
+        0.8881,
+        0.8981,
+        0.9109
+      ],
+      "winners_in_first_half": 7,
+      "winners_in_first_fifth": 2,
+      "expected_in_first_fifth": 3.4,
+      "share_random_mean_at_least": 0.20939,
+      "share_random_mean_at_most": 0.79061,
+      "first_entry": "2026-10-05T18:03:31Z",
+      "last_entry": "2026-10-14T14:41:13Z",
+      "first_winner": "2026-10-06T02:23:27Z",
+      "last_winner": "2026-10-12T05:02:47Z",
+      "sources": {
+        "ranking": "predictions/2026-10-14/predictions_week1.csv",
+        "entries": "predictions/2026-10-14/entries.csv",
+        "score": "predictions/2026-10-14/score_week1.json"
+      }
+    },
+    "week2": {
+      "ranked_entries": 1663,
+      "winners_announced": 18,
+      "winners_timed": 18,
+      "missing": [],
+      "mean_time_percentile": 0.6197,
+      "null_95_interval": [
+        0.3666,
+        0.6334
+      ],
+      "winner_time_percentiles": [
+        0.2136,
+        0.3249,
+        0.3905,
+        0.4567,
+        0.4579,
+        0.5295,
+        0.5812,
+        0.5818,
+        0.6227,
+        0.6474,
+        0.654,
+        0.7256,
+        0.7371,
+        0.7882,
+        0.846,
+        0.8514,
+        0.8718,
+        0.8742
+      ],
+      "winners_in_first_half": 5,
+      "winners_in_first_fifth": 0,
+      "expected_in_first_fifth": 3.6,
+      "share_random_mean_at_least": 0.03877,
+      "share_random_mean_at_most": 0.96123,
+      "first_entry": "2026-10-12T07:02:57Z",
+      "last_entry": "2026-10-19T08:25:13Z",
+      "first_winner": "2026-10-14T19:04:39Z",
+      "last_winner": "2026-10-19T00:00:27Z",
+      "sources": {
+        "ranking": "predictions/2026-10-19/predictions_week2.csv",
+        "entries": "predictions/2026-10-19/entries.csv",
+        "score": "winners_week2.json"
+      }
+    }
+  }
+}

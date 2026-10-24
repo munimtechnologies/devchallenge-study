@@ -4,7 +4,7 @@ The posts DEV announced as challenge winners, compared with every other entry in
 
 Made by MV2 of Munim, Inc., with AI agents working in his name. Code: Apache-2.0. Data (`data/`, `predictions/`): CC BY 4.0.
 
-**Latest (2026-10-23):** the pre-registered forecast has now been scored on two Hacktoberfest 2026 rounds. Both times, a ranking committed before DEV named the winners put them far above chance: week 1, 3 of 17 winners in the top 17 (0.16 expected), mean percentile 0.937; week 2, 5 of 18 in the top 18 (0.19 expected), mean percentile 0.964. [Details below.](#week-2-result)
+**Latest (2026-10-24):** the pre-registered forecast has now been scored on two Hacktoberfest 2026 rounds. Both times, a ranking committed before DEV named the winners put them far above chance: week 1, 3 of 17 winners in the top 17 (0.16 expected), mean percentile 0.937; week 2, 5 of 18 in the top 18 (0.19 expected), mean percentile 0.964. [Details below.](#week-2-result) A separate check found week 2's winners were posted later than a typical entry (only 3.9% of random draws were as late), week 1's not clearly; weeks 3 and 4 now test that forward ([`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md)).
 
 ## Why this is new
 
@@ -37,7 +37,7 @@ Each winner is ranked against the other entries in its own challenge. A percenti
 In short:
 - **Winners are longer and more structured.** 86% of winners are longer than the typical entry in their challenge.
 - **Show it working.** A demo video doubles in frequency among winners (42% vs 21%), and so does a table (29% vs 12%).
-- **When you post doesn't matter.** Winners sit at the middle of their challenge's posting window (0.49). (Week 2 of Hacktoberfest 2026 may be an exception: see [Week 2 result](#week-2-result).)
+- **When you post mostly doesn't matter.** Winners sit at the middle of their challenge's posting window (0.49). Week 2 of Hacktoberfest 2026 is a possible exception: its winners leaned late (see [Week 2 result](#week-2-result)), which weeks 3 and 4 now test forward.
 - **Reactions are not a precondition.** Most entries get almost none: 64% of the 8,320 other entries had 5 reactions or fewer, and 20% had zero. Winners have more, but that count was taken after DEV's announcement sent readers to them, so it can't show that reactions came first. In the October 2026 "Build for a Friend" round, 7 of the 17 winners had 5 reactions or fewer even after the announcement.
 - **Title style barely matters.** A colon or dash is just as common in losing titles.
 
@@ -96,7 +96,16 @@ Full ranking (committed 2026-10-19 10:12 UTC, after the round closed and four da
 
 All 18 winners were in the ranking. Logistic winner ranks, of 1,663: 2, 3, 11, 12, 15, 22, 24, 28, 29, 34, 44, 54, 57, 78, 92, 161, 186, 257. The middle two sit at ranks 29 and 34, 16 of the 18 are in the top tenth, and all 18 are in the top 257. As in week 1, none of 200,000 random placements reached a mean percentile this high (not pre-registered).
 
-The early partial ranking (333 entries, snapshot 2026-10-14 16:48 UTC) holds **none** of the 18 winners, so it has nothing to score. That is not a miss by the model. The winner with the lowest article id (4852284) was created at 18:50 UTC that day and published at 19:04 UTC, after the snapshot. DEV's article ids grow with creation time, so every other winner came later still. The snapshot held about 20% of the round's ranked entries. If winners were spread evenly across entries, all 18 falling outside it would happen about 1.8% of the time. That number was worked out after the fact, for one round, and it sits oddly next to the 0.49 timing finding above, so treat it as a question rather than a result. A follow-up check, which ranks every winner's publish time among its round's entries for weeks 1 and 2, will be added here with its code.
+The early partial ranking (333 entries, snapshot 2026-10-14 16:48 UTC) holds **none** of the 18 winners, so it has nothing to score. That is not a miss by the model. The winner with the lowest article id (4852284) was created at 18:50 UTC that day and published at 19:04 UTC, after the snapshot. DEV's article ids grow with creation time, so every other winner came later still. The snapshot held about 20% of the round's ranked entries. If winners were spread evenly across entries, all 18 falling outside it would happen about 1.8% of the time.
+
+**When were the winners posted?** A follow-up check (`timing.py`, exploratory, [`checks/2026-10-23/`](checks/2026-10-23/)) ranked every winner's publish time among its round's ranked entries:
+
+| Round | Winners | Mean time percentile (0.50 = typical) | 95% range if timing didn't matter | Winners in the first fifth (expected) | Random draws with a mean this late |
+|---|---|---|---|---|---|
+| week1 (Touch Grass) | 17 | 0.557 | 0.363 to 0.637 | 2 (3.4) | 21% |
+| week2 (Side Hustle) | 18 | 0.620 | 0.367 to 0.633 | 0 (3.6) | 3.9% |
+
+Week 2's winners leaned late: none was among the first fifth of entries, and the first was published about 60 hours into the 7-day round. Week 1 shows no clear lean, and two of its winners were among its very first entries. That is one round, found after looking, against a 55-challenge history of 0.49, so it is not a finding yet. Weeks 3 and 4 test it forward under [`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md), committed before week 3 closed. (The week-1 ranking also holds posts published in the two days after that round closed, which may pull its number down; a recount limited to entries posted by the close will be added.)
 
 **Two rounds.** The pre-registration's bar was "winners in the top-k clearly above chance, in more than one round". Both rounds clear it: 8 of 35 winners in the top-k against about 0.35 by chance, and mean percentiles of 0.937 and 0.964 against 0.50. The bar was not set as a number, so this is a reading of it, not a p-value. Its limits still apply: the model reads shape, never substance. Weeks 3 and 4 will be ranked and scored the same way.
 
@@ -142,9 +151,11 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 - `snapshot_w2.py`, `test_snapshot_w2.py`: the full week-2 snapshot (see `predictions/2026-10-19/README.md`).
 - `score_w1.py`, `test_score_w1.py`: the week-1 scorer described above. `python score_w1.py --predictions predictions/2026-10-14/predictions_week1.csv --out score_week1.json --md SCORE.md`
 - `score_round.py`, `test_score_round.py`, `check_rescore.py`, `SCORING.md`: the frozen scorer for week 2 onward, its tests, the week-1 reproduction check, and what is frozen. `python score_round.py --round week2 --predictions <ranking> --out score_week2.json --md SCORE_week2.md`
+- `timing.py`, `test_timing.py`, `PREREGISTRATION_TIMING.md`: when in each round the winners were posted (`python timing.py --data-dir data_cache --out-dir out`), and the forward test of it for weeks 3 and 4.
 - `checks/2026-10-17/`: the run that checked `score_round.py` before it was committed (week-1 rescore, weekend winners, week 2 not yet announced).
+- `checks/2026-10-23/`: the timing check's output for weeks 1 and 2.
 - `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report, and once scored, the scorer's Markdown and JSON output.
 
 ## Licence
 
-Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `snapshot_w2.py`, `test_snapshot_w2.py`, `score_w1.py`, `test_score_w1.py`, `score_round.py`, `test_score_round.py`, `check_rescore.py`): Apache-2.0, see `LICENSE`. Data in `data/`, `predictions/` and `checks/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
+Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `snapshot_w2.py`, `test_snapshot_w2.py`, `score_w1.py`, `test_score_w1.py`, `score_round.py`, `test_score_round.py`, `check_rescore.py`, `timing.py`, `test_timing.py`): Apache-2.0, see `LICENSE`. Data in `data/`, `predictions/` and `checks/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
