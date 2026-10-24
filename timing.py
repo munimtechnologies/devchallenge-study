@@ -9,6 +9,11 @@ above 0.50 means later. The 55-challenge history in this repo put winners at 0.4
 (predictions/2026-10-19/score_week2_full.json); 0.1.0 read the same 18 ids from a
 local copy. Nothing else changed.
 
+0.2.0: each round is also counted a second time ("<round>-by-close") using only
+the ranked entries published by the round's close (hf26.ROUNDS end), since a
+ranking taken days after the close also holds posts that came too late to enter.
+The all-entries rows are unchanged.
+
 Made by MV2 of Munim, Inc., with AI agents working in his name. Apache-2.0.
 """
 import argparse
@@ -19,17 +24,20 @@ import os
 import random
 import urllib.request
 
-VERSION = "0.1.1"
+VERSION = "0.2.0"
 RAW = "https://raw.githubusercontent.com/munimtechnologies/devchallenge-study/main/"
 UA = "devchallenge-study timing.py (MV2 of Munim, Inc.; mv2@munimtech.com)"
 
+# Closes match hf26.ROUNDS (DEV's 23:59 PDT cutoff, one minute later in UTC).
 ROUNDS = {
     "week1": {"ranking": "predictions/2026-10-14/predictions_week1.csv",
               "entries": "predictions/2026-10-14/entries.csv",
-              "score": "predictions/2026-10-14/score_week1.json"},
+              "score": "predictions/2026-10-14/score_week1.json",
+              "close": "2026-10-12T07:00:00Z"},
     "week2": {"ranking": "predictions/2026-10-19/predictions_week2.csv",
               "entries": "predictions/2026-10-19/entries.csv",
-              "score": "predictions/2026-10-19/score_week2_full.json"},
+              "score": "predictions/2026-10-19/score_week2_full.json",
+              "close": "2026-10-19T07:00:00Z"},
 }
 
 
@@ -80,8 +88,12 @@ def chance_tail(times, k, observed, draws, seed):
     return hi / draws, lo / draws
 
 
-def analyse(ranked_ids, published, winner_ids, draws=200000, seed=2026):
+def analyse(ranked_ids, published, winner_ids, draws=200000, seed=2026, close=None):
     times_by_id = {a: published[a] for a in ranked_ids if a in published}
+    after_close = 0
+    if close:
+        after_close = sum(1 for t in times_by_id.values() if t > close)
+        times_by_id = {a: t for a, t in times_by_id.items() if t <= close}
     winners = [w for w in winner_ids if w in times_by_id]
     missing = [w for w in winner_ids if w not in times_by_id]
     times = sorted(times_by_id.values())
@@ -92,6 +104,8 @@ def analyse(ranked_ids, published, winner_ids, draws=200000, seed=2026):
     k = len(pcts)
     res = {"ranked_entries": len(times_by_id), "winners_announced": len(winner_ids),
            "winners_timed": k, "missing": missing}
+    if close:
+        res.update({"close": close, "entries_after_close_left_out": after_close})
     if not k:
         return res
     mean = sum(pcts) / k
@@ -135,8 +149,13 @@ def report_md(results):
             r["winners_in_first_half"], r["share_random_mean_at_least"]))
     lines += ["", "- The last column is the share of 200,000 random sets of the same number of "
               "entries whose mean time percentile is at least as high.",
-              "- Earlier work in this repo (55 challenges, 323 winners) put winners at 0.49 of "
-              "their challenge's posting window."]
+              "- \"-by-close\" rows use only the ranked entries published by the round's close."]
+    for name, r in results.items():
+        if "close" in r:
+            lines.append("- %s: close %s, %d ranked entries published after it left out." % (
+                name, r["close"], r["entries_after_close_left_out"]))
+    lines.append("- Earlier work in this repo (55 challenges, 323 winners) put winners at 0.49 of "
+                 "their challenge's posting window.")
     return "\n".join(lines) + "\n"
 
 
@@ -155,10 +174,14 @@ def main(argv=None):
         published = read_published(fetch(src["entries"], a.data_dir, token))
         with open(fetch(src["score"], a.data_dir, token), encoding="utf-8") as f:
             winner_ids = [int(w) for w in json.load(f)["winner_ids"]]
-        results[name] = analyse(ranked, published, winner_ids, draws=a.draws)
-        results[name]["sources"] = src
-        print(name, json.dumps({k: v for k, v in results[name].items()
-                                if k != "winner_time_percentiles"}))
+        runs = [(name, None)]
+        if src.get("close"):
+            runs.append((name + "-by-close", src["close"]))
+        for label, close in runs:
+            results[label] = analyse(ranked, published, winner_ids, draws=a.draws, close=close)
+            results[label]["sources"] = src
+            print(label, json.dumps({k: v for k, v in results[label].items()
+                                     if k != "winner_time_percentiles"}))
     out = {"version": VERSION, "pre_registered": False, "rounds": results}
     with open(os.path.join(a.out_dir, "timing.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)

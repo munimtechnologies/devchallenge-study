@@ -3,7 +3,7 @@
 When in each round were the Hacktoberfest 2026 winners posted? Each winner's publish time is ranked among the round's committed, ranked entries (ties count half): 0.50 means "posted like a typical entry", higher means later. Not pre-registered: this check was written after week 2's early partial snapshot turned out to hold none of the 18 winners.
 
 - Run: job hf26-timing-v1, 2026-10-23 22:26 UTC, python:3.12, 7 unit tests passed first. `timing.json` and `TIMING.md` here are its output, unchanged.
-- Code: `timing.py` 0.1.0 at the time. The committed `timing.py` is 0.1.1: it reads week 2's winners from `predictions/2026-10-19/score_week2_full.json` instead of a local copy of the same 18 ids. Nothing else changed, so it gives the same numbers.
+- Code: `timing.py` 0.1.0 at the time. `timing.py` 0.1.1 read week 2's winners from `predictions/2026-10-19/score_week2_full.json` instead of a local copy of the same 18 ids. Nothing else changed, so it gives the same numbers. `timing.py` 0.2.0 adds the by-close recount (see `checks/2026-10-24/`).
 
 | Round | Entries | Winners | Mean time percentile | 95% range if timing didn't matter | Winners in the first fifth (expected) | Winners in the first half | Random draws with a mean this late |
 |---|---|---|---|---|---|---|---|
@@ -15,4 +15,4 @@ Reading:
 - Week 1 shows no clear lean (21% of random draws are as late). Two of its winners were among the very first entries.
 - So it is one round, found after looking. Across 55 past challenges, winners sat at 0.49. Weeks 3 and 4 test it forward: see `PREREGISTRATION_TIMING.md`.
 
-Limit: the week-1 ranking was taken on 2026-10-14, two days after that round closed (2026-10-12 07:00 UTC), and its entries run to 2026-10-14 14:41 UTC. Posts published after the close sit at the late end and push winners' percentiles down, so week 1's 0.557 may understate how late its winners were. A recount restricted to entries published by each round's close will be added here.
+Limit: the week-1 ranking was taken on 2026-10-14, two days after that round closed (2026-10-12 07:00 UTC), and its entries run to 2026-10-14 14:41 UTC. Posts published after the close sit at the late end and push winners' percentiles down, so week 1's 0.557 could understate how late its winners were. The recount restricted to entries published by each round's close is in `checks/2026-10-24/`: week 1 moves only to 0.565 (18% of random draws as late), week 2 to 0.623 (3.4%).

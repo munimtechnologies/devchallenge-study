@@ -4,7 +4,7 @@ The posts DEV announced as challenge winners, compared with every other entry in
 
 Made by MV2 of Munim, Inc., with AI agents working in his name. Code: Apache-2.0. Data (`data/`, `predictions/`): CC BY 4.0.
 
-**Latest (2026-10-24):** the pre-registered forecast has now been scored on two Hacktoberfest 2026 rounds. Both times, a ranking committed before DEV named the winners put them far above chance: week 1, 3 of 17 winners in the top 17 (0.16 expected), mean percentile 0.937; week 2, 5 of 18 in the top 18 (0.19 expected), mean percentile 0.964. [Details below.](#week-2-result) A separate check found week 2's winners were posted later than a typical entry (only 3.9% of random draws were as late), week 1's not clearly; weeks 3 and 4 now test that forward ([`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md)).
+**Latest (2026-10-24):** the pre-registered forecast has now been scored on two Hacktoberfest 2026 rounds. Both times, a ranking committed before DEV named the winners put them far above chance: week 1, 3 of 17 winners in the top 17 (0.16 expected), mean percentile 0.937; week 2, 5 of 18 in the top 18 (0.19 expected), mean percentile 0.964. [Details below.](#week-2-result) A separate check found week 2's winners were posted later than a typical entry (only 3.9% of random draws were as late; 3.4% counting only entries posted by the close), week 1's not clearly; weeks 3 and 4 now test that forward ([`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md)).
 
 ## Why this is new
 
@@ -98,14 +98,16 @@ All 18 winners were in the ranking. Logistic winner ranks, of 1,663: 2, 3, 11, 1
 
 The early partial ranking (333 entries, snapshot 2026-10-14 16:48 UTC) holds **none** of the 18 winners, so it has nothing to score. That is not a miss by the model. The winner with the lowest article id (4852284) was created at 18:50 UTC that day and published at 19:04 UTC, after the snapshot. DEV's article ids grow with creation time, so every other winner came later still. The snapshot held about 20% of the round's ranked entries. If winners were spread evenly across entries, all 18 falling outside it would happen about 1.8% of the time.
 
-**When were the winners posted?** A follow-up check (`timing.py`, exploratory, [`checks/2026-10-23/`](checks/2026-10-23/)) ranked every winner's publish time among its round's ranked entries:
+**When were the winners posted?** A follow-up check (`timing.py`, exploratory, [`checks/2026-10-23/`](checks/2026-10-23/) and [`checks/2026-10-24/`](checks/2026-10-24/)) ranked every winner's publish time among its round's ranked entries:
 
 | Round | Winners | Mean time percentile (0.50 = typical) | 95% range if timing didn't matter | Winners in the first fifth (expected) | Random draws with a mean this late |
 |---|---|---|---|---|---|
-| week1 (Touch Grass) | 17 | 0.557 | 0.363 to 0.637 | 2 (3.4) | 21% |
-| week2 (Side Hustle) | 18 | 0.620 | 0.367 to 0.633 | 0 (3.6) | 3.9% |
+| week1 (Touch Grass), all ranked entries | 17 | 0.557 | 0.363 to 0.637 | 2 (3.4) | 21% |
+| week1, entries posted by the close | 17 | 0.565 | 0.363 to 0.637 | 2 (3.4) | 18% |
+| week2 (Side Hustle), all ranked entries | 18 | 0.620 | 0.367 to 0.633 | 0 (3.6) | 3.9% |
+| week2, entries posted by the close | 18 | 0.623 | 0.367 to 0.633 | 0 (3.6) | 3.4% |
 
-Week 2's winners leaned late: none was among the first fifth of entries, and the first was published about 60 hours into the 7-day round. Week 1 shows no clear lean, and two of its winners were among its very first entries. That is one round, found after looking, against a 55-challenge history of 0.49, so it is not a finding yet. Weeks 3 and 4 test it forward under [`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md), committed before week 3 closed. (The week-1 ranking also holds posts published in the two days after that round closed, which may pull its number down; a recount limited to entries posted by the close will be added.)
+Week 2's winners leaned late: none was among the first fifth of entries, and the first was published about 60 hours into the 7-day round. Week 1 shows no clear lean, and two of its winners were among its very first entries. That is one round, found after looking, against a 55-challenge history of 0.49, so it is not a finding yet. Weeks 3 and 4 test it forward under [`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md), committed before week 3 closed. Leaving out the entries posted after each round's close (26 in week 1, 10 in week 2) barely moves either number, so the week-1 ranking's late snapshot is not what kept it near 0.5. The pre-registered call stays on the all-entries numbers.
 
 **Two rounds.** The pre-registration's bar was "winners in the top-k clearly above chance, in more than one round". Both rounds clear it: 8 of 35 winners in the top-k against about 0.35 by chance, and mean percentiles of 0.937 and 0.964 against 0.50. The bar was not set as a number, so this is a reading of it, not a p-value. Its limits still apply: the model reads shape, never substance. Weeks 3 and 4 will be ranked and scored the same way.
 
@@ -151,9 +153,10 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 - `snapshot_w2.py`, `test_snapshot_w2.py`: the full week-2 snapshot (see `predictions/2026-10-19/README.md`).
 - `score_w1.py`, `test_score_w1.py`: the week-1 scorer described above. `python score_w1.py --predictions predictions/2026-10-14/predictions_week1.csv --out score_week1.json --md SCORE.md`
 - `score_round.py`, `test_score_round.py`, `check_rescore.py`, `SCORING.md`: the frozen scorer for week 2 onward, its tests, the week-1 reproduction check, and what is frozen. `python score_round.py --round week2 --predictions <ranking> --out score_week2.json --md SCORE_week2.md`
-- `timing.py`, `test_timing.py`, `PREREGISTRATION_TIMING.md`: when in each round the winners were posted (`python timing.py --data-dir data_cache --out-dir out`), and the forward test of it for weeks 3 and 4.
+- `timing.py`, `test_timing.py`, `PREREGISTRATION_TIMING.md`: when in each round the winners were posted, counted over all ranked entries and over entries posted by the close (`python timing.py --data-dir data_cache --out-dir out`), and the forward test of it for weeks 3 and 4.
 - `checks/2026-10-17/`: the run that checked `score_round.py` before it was committed (week-1 rescore, weekend winners, week 2 not yet announced).
-- `checks/2026-10-23/`: the timing check's output for weeks 1 and 2.
+- `checks/2026-10-23/`: the timing check's output for weeks 1 and 2 (all ranked entries).
+- `checks/2026-10-24/`: the same check with the by-close recount added (`timing.py` 0.2.0).
 - `predictions/<date>/`: each committed ranking with its snapshot, model, backtest and report, and once scored, the scorer's Markdown and JSON output.
 
 ## Licence
