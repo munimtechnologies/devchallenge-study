@@ -1,0 +1,578 @@
+{
+  "summary": {
+    "logistic": {
+      "challenges": 55,
+      "winners": 323,
+      "mean_winner_percentile": 0.781,
+      "ci95": [
+        0.75,
+        0.813
+      ],
+      "hits_top_k": 151,
+      "expected_hits_if_random": 77.3
+    },
+    "rank": {
+      "challenges": 55,
+      "winners": 323,
+      "mean_winner_percentile": 0.755,
+      "ci95": [
+        0.724,
+        0.787
+      ],
+      "hits_top_k": 142,
+      "expected_hits_if_random": 77.3
+    }
+  },
+  "per_challenge": [
+    {
+      "challenge_id": "2186281",
+      "winners": 3,
+      "rows": 21,
+      "logistic_percentile": 0.963,
+      "logistic_hits": 2,
+      "rank_percentile": 0.926,
+      "rank_hits": 2,
+      "expected_hits": 0.43
+    },
+    {
+      "challenge_id": "2196436",
+      "winners": 2,
+      "rows": 14,
+      "logistic_percentile": 0.5,
+      "logistic_hits": 0,
+      "rank_percentile": 0.625,
+      "rank_hits": 0,
+      "expected_hits": 0.29
+    },
+    {
+      "challenge_id": "2197849",
+      "winners": 3,
+      "rows": 24,
+      "logistic_percentile": 0.365,
+      "logistic_hits": 0,
+      "rank_percentile": 0.333,
+      "rank_hits": 0,
+      "expected_hits": 0.38
+    },
+    {
+      "challenge_id": "2236718",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.833,
+      "logistic_hits": 1,
+      "rank_percentile": 0.889,
+      "rank_hits": 2,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2249349",
+      "winners": 7,
+      "rows": 37,
+      "logistic_percentile": 0.781,
+      "logistic_hits": 4,
+      "rank_percentile": 0.886,
+      "rank_hits": 4,
+      "expected_hits": 1.32
+    },
+    {
+      "challenge_id": "2275913",
+      "winners": 4,
+      "rows": 34,
+      "logistic_percentile": 0.683,
+      "logistic_hits": 0,
+      "rank_percentile": 0.767,
+      "rank_hits": 2,
+      "expected_hits": 0.47
+    },
+    {
+      "challenge_id": "2314962",
+      "winners": 3,
+      "rows": 28,
+      "logistic_percentile": 0.627,
+      "logistic_hits": 0,
+      "rank_percentile": 0.64,
+      "rank_hits": 0,
+      "expected_hits": 0.32
+    },
+    {
+      "challenge_id": "2378824",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.633,
+      "logistic_hits": 1,
+      "rank_percentile": 0.689,
+      "rank_hits": 0,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2411516",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.833,
+      "logistic_hits": 1,
+      "rank_percentile": 0.833,
+      "rank_hits": 2,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2414108",
+      "winners": 2,
+      "rows": 26,
+      "logistic_percentile": 0.75,
+      "logistic_hits": 0,
+      "rank_percentile": 0.896,
+      "rank_hits": 0,
+      "expected_hits": 0.15
+    },
+    {
+      "challenge_id": "2468853",
+      "winners": 3,
+      "rows": 28,
+      "logistic_percentile": 0.787,
+      "logistic_hits": 1,
+      "rank_percentile": 0.64,
+      "rank_hits": 1,
+      "expected_hits": 0.32
+    },
+    {
+      "challenge_id": "2491482",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.744,
+      "logistic_hits": 0,
+      "rank_percentile": 0.856,
+      "rank_hits": 0,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2512119",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.9,
+      "logistic_hits": 1,
+      "rank_percentile": 0.978,
+      "rank_hits": 2,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2618815",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.422,
+      "logistic_hits": 0,
+      "rank_percentile": 0.544,
+      "rank_hits": 0,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2676204",
+      "winners": 6,
+      "rows": 36,
+      "logistic_percentile": 0.6,
+      "logistic_hits": 1,
+      "rank_percentile": 0.456,
+      "rank_hits": 0,
+      "expected_hits": 1.0
+    },
+    {
+      "challenge_id": "2700498",
+      "winners": 18,
+      "rows": 48,
+      "logistic_percentile": 0.713,
+      "logistic_hits": 10,
+      "rank_percentile": 0.728,
+      "rank_hits": 10,
+      "expected_hits": 6.75
+    },
+    {
+      "challenge_id": "2758593",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.5,
+      "logistic_hits": 1,
+      "rank_percentile": 0.644,
+      "rank_hits": 0,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2758918",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.722,
+      "logistic_hits": 1,
+      "rank_percentile": 0.833,
+      "rank_hits": 1,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2774328",
+      "winners": 2,
+      "rows": 32,
+      "logistic_percentile": 0.7,
+      "logistic_hits": 0,
+      "rank_percentile": 0.4,
+      "rank_hits": 0,
+      "expected_hits": 0.12
+    },
+    {
+      "challenge_id": "2787824",
+      "winners": 2,
+      "rows": 32,
+      "logistic_percentile": 0.983,
+      "logistic_hits": 1,
+      "rank_percentile": 0.95,
+      "rank_hits": 1,
+      "expected_hits": 0.12
+    },
+    {
+      "challenge_id": "2788322",
+      "winners": 9,
+      "rows": 39,
+      "logistic_percentile": 0.889,
+      "logistic_hits": 5,
+      "rank_percentile": 0.837,
+      "rank_hits": 5,
+      "expected_hits": 2.08
+    },
+    {
+      "challenge_id": "2839774",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.733,
+      "logistic_hits": 2,
+      "rank_percentile": 0.713,
+      "rank_hits": 1,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "2854385",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.767,
+      "logistic_hits": 1,
+      "rank_percentile": 0.678,
+      "rank_hits": 0,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2883222",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.722,
+      "logistic_hits": 0,
+      "rank_percentile": 0.656,
+      "rank_hits": 0,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2908823",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.789,
+      "logistic_hits": 0,
+      "rank_percentile": 0.956,
+      "rank_hits": 2,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "2999273",
+      "winners": 3,
+      "rows": 17,
+      "logistic_percentile": 0.857,
+      "logistic_hits": 2,
+      "rank_percentile": 0.786,
+      "rank_hits": 1,
+      "expected_hits": 0.53
+    },
+    {
+      "challenge_id": "3042509",
+      "winners": 15,
+      "rows": 45,
+      "logistic_percentile": 0.611,
+      "logistic_hits": 5,
+      "rank_percentile": 0.72,
+      "rank_hits": 6,
+      "expected_hits": 5.0
+    },
+    {
+      "challenge_id": "3077942",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.811,
+      "logistic_hits": 1,
+      "rank_percentile": 0.822,
+      "rank_hits": 1,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "3114021",
+      "winners": 2,
+      "rows": 32,
+      "logistic_percentile": 0.783,
+      "logistic_hits": 1,
+      "rank_percentile": 0.6,
+      "rank_hits": 0,
+      "expected_hits": 0.12
+    },
+    {
+      "challenge_id": "3113758",
+      "winners": 3,
+      "rows": 29,
+      "logistic_percentile": 0.756,
+      "logistic_hits": 0,
+      "rank_percentile": 0.782,
+      "rank_hits": 0,
+      "expected_hits": 0.31
+    },
+    {
+      "challenge_id": "3141545",
+      "winners": 2,
+      "rows": 27,
+      "logistic_percentile": 0.92,
+      "logistic_hits": 1,
+      "rank_percentile": 0.84,
+      "rank_hits": 1,
+      "expected_hits": 0.15
+    },
+    {
+      "challenge_id": "3156178",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.933,
+      "logistic_hits": 4,
+      "rank_percentile": 0.9,
+      "rank_hits": 3,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "3191956",
+      "winners": 2,
+      "rows": 32,
+      "logistic_percentile": 0.683,
+      "logistic_hits": 0,
+      "rank_percentile": 0.7,
+      "rank_hits": 1,
+      "expected_hits": 0.12
+    },
+    {
+      "challenge_id": "3266739",
+      "winners": 8,
+      "rows": 38,
+      "logistic_percentile": 0.742,
+      "logistic_hits": 3,
+      "rank_percentile": 0.833,
+      "rank_hits": 3,
+      "expected_hits": 1.68
+    },
+    {
+      "challenge_id": "3309203",
+      "winners": 4,
+      "rows": 34,
+      "logistic_percentile": 0.55,
+      "logistic_hits": 0,
+      "rank_percentile": 0.6,
+      "rank_hits": 1,
+      "expected_hits": 0.47
+    },
+    {
+      "challenge_id": "3331372",
+      "winners": 27,
+      "rows": 57,
+      "logistic_percentile": 0.825,
+      "logistic_hits": 18,
+      "rank_percentile": 0.79,
+      "rank_hits": 19,
+      "expected_hits": 12.79
+    },
+    {
+      "challenge_id": "3369046",
+      "winners": 4,
+      "rows": 34,
+      "logistic_percentile": 0.917,
+      "logistic_hits": 2,
+      "rank_percentile": 0.858,
+      "rank_hits": 2,
+      "expected_hits": 0.47
+    },
+    {
+      "challenge_id": "3373345",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.944,
+      "logistic_hits": 1,
+      "rank_percentile": 0.933,
+      "rank_hits": 1,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "3506618",
+      "winners": 6,
+      "rows": 36,
+      "logistic_percentile": 0.694,
+      "logistic_hits": 4,
+      "rank_percentile": 0.622,
+      "rank_hits": 1,
+      "expected_hits": 1.0
+    },
+    {
+      "challenge_id": "3516155",
+      "winners": 3,
+      "rows": 33,
+      "logistic_percentile": 0.856,
+      "logistic_hits": 2,
+      "rank_percentile": 0.711,
+      "rank_hits": 1,
+      "expected_hits": 0.27
+    },
+    {
+      "challenge_id": "3542971",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.547,
+      "logistic_hits": 1,
+      "rank_percentile": 0.573,
+      "rank_hits": 2,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "3593416",
+      "winners": 9,
+      "rows": 39,
+      "logistic_percentile": 0.8,
+      "logistic_hits": 5,
+      "rank_percentile": 0.756,
+      "rank_hits": 4,
+      "expected_hits": 2.08
+    },
+    {
+      "challenge_id": "3627978",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.767,
+      "logistic_hits": 1,
+      "rank_percentile": 0.757,
+      "rank_hits": 1,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "3629085",
+      "winners": 6,
+      "rows": 36,
+      "logistic_percentile": 0.7,
+      "logistic_hits": 1,
+      "rank_percentile": 0.6,
+      "rank_hits": 1,
+      "expected_hits": 1.0
+    },
+    {
+      "challenge_id": "3875595",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.787,
+      "logistic_hits": 1,
+      "rank_percentile": 0.78,
+      "rank_hits": 1,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "3934585",
+      "winners": 14,
+      "rows": 44,
+      "logistic_percentile": 0.752,
+      "logistic_hits": 8,
+      "rank_percentile": 0.6,
+      "rank_hits": 5,
+      "expected_hits": 4.45
+    },
+    {
+      "challenge_id": "3935459",
+      "winners": 12,
+      "rows": 42,
+      "logistic_percentile": 0.875,
+      "logistic_hits": 8,
+      "rank_percentile": 0.697,
+      "rank_hits": 6,
+      "expected_hits": 3.43
+    },
+    {
+      "challenge_id": "4054555",
+      "winners": 10,
+      "rows": 40,
+      "logistic_percentile": 0.877,
+      "logistic_hits": 6,
+      "rank_percentile": 0.843,
+      "rank_hits": 5,
+      "expected_hits": 2.5
+    },
+    {
+      "challenge_id": "4108558",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.827,
+      "logistic_hits": 2,
+      "rank_percentile": 0.827,
+      "rank_hits": 1,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "4274330",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.967,
+      "logistic_hits": 4,
+      "rank_percentile": 0.947,
+      "rank_hits": 3,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "4625271",
+      "winners": 2,
+      "rows": 32,
+      "logistic_percentile": 0.983,
+      "logistic_hits": 1,
+      "rank_percentile": 0.9,
+      "rank_hits": 1,
+      "expected_hits": 0.12
+    },
+    {
+      "challenge_id": "4679179",
+      "winners": 5,
+      "rows": 35,
+      "logistic_percentile": 0.973,
+      "logistic_hits": 3,
+      "rank_percentile": 0.96,
+      "rank_hits": 4,
+      "expected_hits": 0.71
+    },
+    {
+      "challenge_id": "4735686",
+      "winners": 23,
+      "rows": 53,
+      "logistic_percentile": 0.822,
+      "logistic_hits": 17,
+      "rank_percentile": 0.71,
+      "rank_hits": 14,
+      "expected_hits": 9.98
+    },
+    {
+      "challenge_id": "4784422",
+      "winners": 8,
+      "rows": 38,
+      "logistic_percentile": 0.796,
+      "logistic_hits": 3,
+      "rank_percentile": 0.783,
+      "rank_hits": 4,
+      "expected_hits": 1.68
+    },
+    {
+      "challenge_id": "4825130",
+      "winners": 17,
+      "rows": 47,
+      "logistic_percentile": 0.945,
+      "logistic_hits": 13,
+      "rank_percentile": 0.901,
+      "rank_hits": 14,
+      "expected_hits": 6.15
+    }
+  ]
+}
