@@ -63,7 +63,7 @@ ANN_WORDS = {
     "week1": ("week 1", "week1", "touch grass"),
     "week2": ("week 2", "week2", "side hustle"),
     "week3": ("week 3", "week3", "slow and steady"),
-    "week4": ("week 4", "week4"),
+    "week4": ("week 4", "week4", "ghost in the machine"),
 }
 SKIP_USERS = {
     "devteam", "challenges", "page", "t", "settings", "enter", "search", "api",
