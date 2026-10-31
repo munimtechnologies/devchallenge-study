@@ -4,7 +4,7 @@ The posts DEV announced as challenge winners, compared with every other entry in
 
 Made by MV2 of Munim, Inc., with AI agents working in his name. Code: Apache-2.0. Data (`data/`, `predictions/`): CC BY 4.0.
 
-**Latest (2026-10-24):** the pre-registered forecast has now been scored on two Hacktoberfest 2026 rounds. Both times, a ranking committed before DEV named the winners put them far above chance: week 1, 3 of 17 winners in the top 17 (0.16 expected), mean percentile 0.937; week 2, 5 of 18 in the top 18 (0.19 expected), mean percentile 0.964. [Details below.](#week-2-result) A separate check found week 2's winners were posted later than a typical entry (only 3.9% of random draws were as late; 3.4% counting only entries posted by the close), week 1's not clearly; weeks 3 and 4 now test that forward ([`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md)). **Out of sample**, on the Sanity Challenge, a DEV challenge the model never saw, all five prize winners ranked in the top 26 of 303 entries, mean percentile 0.962 ([below](#out-of-sample-sanity-challenge)). Counting them exposed a bug: the study's link reader skips usernames that contain a hyphen. [`ERRATUM_LINKS.md`](ERRATUM_LINKS.md) fixes how weeks 3 and 4 are counted, before their winners are known. An audit of all 63 announcements the study uses found that the bug missed one winner in the training data and none in weeks 1 and 2. Correcting it moves the backtest by 0.001.
+**Latest (2026-10-31):** the pre-registered forecast has now been scored on three Hacktoberfest 2026 rounds. Each time, a ranking committed before DEV named the winners put them far above chance: week 1, 3 of 17 winners in the top 17 (0.16 expected), mean percentile 0.937; week 2, 5 of 18 in the top 18 (0.19 expected), mean percentile 0.964; week 3, 4 of 21 in the top 21 (0.28 expected), mean percentile 0.929. Across the three rounds, 12 of 56 winners were in the top-k against about 0.63 by chance. [Details below.](#week-3-result) A separate check found week 2's winners were posted later than a typical entry (only 3.9% of random draws were as late; 3.4% counting only entries posted by the close), week 1's not clearly; weeks 3 and 4 now test that forward, and the test is answered once week 4's winners are announced ([`PREREGISTRATION_TIMING.md`](PREREGISTRATION_TIMING.md)). **Out of sample**, on the Sanity Challenge, a DEV challenge the model never saw, all five prize winners ranked in the top 26 of 303 entries, mean percentile 0.962 ([below](#out-of-sample-sanity-challenge)). Counting them exposed a bug: the study's link reader skips usernames that contain a hyphen. [`ERRATUM_LINKS.md`](ERRATUM_LINKS.md) fixes how weeks 3 and 4 are counted, before their winners are known. An audit of all 63 announcements the study uses found that the bug missed one winner in the training data and none in weeks 1 and 2. Correcting it moves the backtest by 0.001.
 
 ## Why this is new
 
@@ -63,6 +63,7 @@ Hindsight is cheap, so the findings above are now being tested forward. `hf26.py
 | week1 (Touch Grass) | [`predictions/2026-10-14/`](predictions/2026-10-14/) | 1,797 | 17 | about 0.16 | **scored 2026-10-17** (below) |
 | week2 (Side Hustle), early partial | [`predictions/2026-10-14/`](predictions/2026-10-14/) | 333 | 18 | about 0.97 | scored 2026-10-23: no winner was posted by that snapshot (below) |
 | week2 (Side Hustle), full | [`predictions/2026-10-19/`](predictions/2026-10-19/) | 1,663 | 18 | about 0.19 | **scored 2026-10-23** (below) |
+| week3 (Slow and Steady) | [`predictions/2026-10-26/`](predictions/2026-10-26/) | 1,594 | 21 | about 0.28 | **scored 2026-10-31** (below) |
 
 Left out one challenge at a time, the model put past winners at a mean percentile of 0.78 (0.75 to 0.81) and 151 of 323 winners in their challenge's top-k against 77 by chance. That backtest ranks winners against small sampled fields; the live test ranks them against every entry, so it is much harder. Each round's result is added here when DEV announces its winners, whatever it shows.
 
@@ -113,6 +114,25 @@ Week 2's winners leaned late: none was among the first fifth of entries, and the
 
 Scorer output: [`predictions/2026-10-19/SCORE_week2_full.md`](predictions/2026-10-19/SCORE_week2_full.md) and `score_week2_full.json`; partial: [`predictions/2026-10-14/SCORE_week2_partial.md`](predictions/2026-10-14/SCORE_week2_partial.md) and `score_week2_partial.json`.
 
+### Week 3 result
+
+DEV announced the 21 Slow and Steady winners on 2026-10-30 at 20:35:58 UTC (article 4949434), four days after the ranking was committed (2026-10-26, after the round closed at 07:00 UTC). On 2026-10-31 a sealed job (hf26-score-w3-v1) downloaded `score_round.py` from `main` and from the frozen commit `e6bb93f`, stopped unless the two were byte-identical (they were), ran the scorer's tests (passed), and scored the ranking exactly as committed, with both link readers. Nothing was read or fixed by hand.
+
+| Reader | Winners found | Ordering | Winners in the top-k | Expected by chance | Mean winner percentile (0.50 = no signal) |
+|---|---|---|---|---|---|
+| Frozen `score_round.py` 0.1.0 (pre-registered) | 20 of 21 | Logistic model (primary) | **4** | 0.25 | **0.927** |
+| | | rank_score baseline | 5 | 0.25 | 0.921 |
+| Corrected link reader (`ERRATUM_LINKS.md`, committed 2026-10-24) | 21 of 21 | Logistic model (primary) | **4** | 0.28 | **0.929** |
+| | | rank_score baseline | 5 | 0.28 | 0.922 |
+
+All 21 winners were in the ranking. Logistic winner ranks, of 1,594 (corrected reader): 4, 6, 13, 19, 23, 26, 29, 32, 36, 38, 40, 68, 94, 95, 101, 105, 117, 219, 430, 438, 447. The middle winner sits at rank 40, 17 of the 21 are in the top tenth, and all 21 are in the top 447. As in weeks 1 and 2, none of 200,000 random placements reached a mean percentile this high (not pre-registered).
+
+The frozen reader found 20 winner links, not 21; the one it missed sits at logistic rank 38. That is the gap `ERRATUM_LINKS.md` describes, and why the corrected reader was committed before this round closed. One more thing to know when reading `SCORE_week3_full.md`: it says status `scored` and "DEV advertised None", because the frozen scorer's table of advertised counts stops at week 2 ([`SCORING.md`](SCORING.md)). Counted against the 21 winners DEV advertised, the frozen rule's own definition would have marked it `flagged`. The scorer is left unchanged, as `SCORING.md` requires; the hit count is 4 under either reader.
+
+**Three rounds.** 12 of 56 winners in the top-k against about 0.63 by chance, and mean winner percentiles of 0.937, 0.964 and 0.929 against 0.50. Week 3's mean percentile is the lowest of the three, but close to week 1's. The limits are unchanged: the model reads a post's shape, never its quality, and cannot see which partner technology an entry used. Week 4 (closes 2026-11-01 07:00 UTC) will be ranked and scored the same way, and its winners settle the pooled timing test.
+
+Scorer output: [`predictions/2026-10-26/SCORE_week3_full.md`](predictions/2026-10-26/SCORE_week3_full.md) and `score_week3_full.json` (frozen reader); [`predictions/2026-10-26/SCORE_week3_links.md`](predictions/2026-10-26/SCORE_week3_links.md) and `score_week3_links.json` (corrected reader).
+
 ### Out of sample: Sanity Challenge
 
 [`OUT_OF_SAMPLE.md`](OUT_OF_SAMPLE.md), committed before any result, adds a third test: the same model, unchanged, on every DEV challenge announced after its training data, chosen by date alone. The first is the Sanity Challenge (announced 2026-10-22, $500 to each of five winners). The winners were public when it ran, so this is not a forecast. But the model never saw this challenge, and its refitted weights were identical to the committed model's.
@@ -131,6 +151,8 @@ The logistic model put the five prize winners at ranks **3, 5, 9, 20 and 26 of 3
 The first run (`oos.py` 0.1.0, job devchallenge-oos-v1, [`checks/2026-10-24-oos/`](checks/2026-10-24-oos/)) missed the fifth prize winner (article 4797565), whose username contains a hyphen, which the study's link reader skips ([`ERRATUM_LINKS.md`](ERRATUM_LINKS.md)). Its output is kept as run. This is one challenge with five winners, read after the announcement (no entry had been edited since). It is one data point beside the forward test, not a test on its own.
 
 Output: [`checks/2026-10-24-oos-v2/`](checks/2026-10-24-oos-v2/) (`OOS.md`, `oos.json`, the ranking and the measured entries).
+
+**Next, a forward version.** [`FORWARD_OOS.md`](FORWARD_OOS.md) (committed 2026-10-31) fixes how the model will rank the DEV × Kaggle Benchmarking Challenge, another challenge it never saw, **before** DEV names its five winners (expected 2026-11-05). It also states two predictions. The ranking will be committed in `predictions/kaggle-2026/` and scored whatever it shows.
 
 ### How week 1 was scored
 
@@ -171,11 +193,13 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 - `data/posts.csv`: one row per post (article id, never a username) with every measured feature.
 - `hf26.py`, `test_hf26.py`, `PREREGISTRATION.md`: the forward test (`snapshot`, `predict`, `score`) and its protocol.
 - `snapshot_w2.py`, `test_snapshot_w2.py`: the full week-2 snapshot (see `predictions/2026-10-19/README.md`).
+- `snapshot_round.py`, `test_snapshot_round.py`, `fetch.py`: the same snapshot with the round as an argument, used from week 3 on, and the helper that downloads the committed `hf26.py` for it (see `predictions/2026-10-26/README.md`).
 - `score_w1.py`, `test_score_w1.py`: the week-1 scorer described above. `python score_w1.py --predictions predictions/2026-10-14/predictions_week1.csv --out score_week1.json --md SCORE.md`
 - `score_round.py`, `test_score_round.py`, `check_rescore.py`, `SCORING.md`: the frozen scorer for week 2 onward, its tests, the week-1 reproduction check, and what is frozen. `python score_round.py --round week2 --predictions <ranking> --out score_week2.json --md SCORE_week2.md`
 - `timing.py`, `test_timing.py`, `PREREGISTRATION_TIMING.md`: when in each round the winners were posted, counted over all ranked entries and over entries posted by the close (`python timing.py --data-dir data_cache --out-dir out`), and the forward test of it for weeks 3 and 4.
 - `OUT_OF_SAMPLE.md`, `oos.py`, `test_oos.py`: the out-of-sample check's rule and code (`python oos.py --out-dir out --train data/posts.csv`, with `hf26.py`, `links.py` and `data/challenges.json` alongside).
 - `ERRATUM_LINKS.md`, `links.py`, `test_links.py`, `score_round_links.py`: the hyphenated-username bug, the corrected link reader, and the frozen scorer run with it (`python score_round_links.py --round week3 --predictions <ranking> --out score_week3_links.json`).
+- `FORWARD_OOS.md`, `forecast_oos.py`, `test_forecast_oos.py`: the forward out-of-sample forecast, its rule and code (`snapshot`, then `score` after the announcement).
 - `linkaudit.py`, `test_linkaudit.py`, `same_score.py`: the audit of every announcement with both readers, the backtest with corrected labels (`python linkaudit.py --out-dir out --train data/posts.csv`), and the score comparison (`python same_score.py a.json b.json label`).
 - `checks/2026-10-17/`: the run that checked `score_round.py` before it was committed (week-1 rescore, weekend winners, week 2 not yet announced).
 - `checks/2026-10-23/`: the timing check's output for weeks 1 and 2 (all ranked entries).
@@ -187,4 +211,4 @@ Five announcements were dropped: one linked no posts, and four had fewer than 10
 
 ## Licence
 
-Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `snapshot_w2.py`, `test_snapshot_w2.py`, `score_w1.py`, `test_score_w1.py`, `score_round.py`, `test_score_round.py`, `check_rescore.py`, `timing.py`, `test_timing.py`, `oos.py`, `test_oos.py`, `links.py`, `test_links.py`, `score_round_links.py`, `linkaudit.py`, `test_linkaudit.py`, `same_score.py`): Apache-2.0, see `LICENSE`. Data in `data/`, `predictions/` and `checks/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
+Code (`job.py`, `test_job.py`, `hf26.py`, `test_hf26.py`, `snapshot_w2.py`, `test_snapshot_w2.py`, `snapshot_round.py`, `test_snapshot_round.py`, `fetch.py`, `score_w1.py`, `test_score_w1.py`, `score_round.py`, `test_score_round.py`, `check_rescore.py`, `timing.py`, `test_timing.py`, `oos.py`, `test_oos.py`, `forecast_oos.py`, `test_forecast_oos.py`, `links.py`, `test_links.py`, `score_round_links.py`, `linkaudit.py`, `test_linkaudit.py`, `same_score.py`): Apache-2.0, see `LICENSE`. Data in `data/`, `predictions/` and `checks/`: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Credit "MV2 of Munim, Inc., devchallenge-study". Post content belongs to its authors; only measurements are published here.
