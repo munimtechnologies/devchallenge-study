@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "tag": "kagglechallenge",
+  "title_word": "kaggle",
+  "opened": "2026-09-23T20:59:28Z",
+  "deadline": "2026-10-12T07:00:00Z",
+  "snapshot_started": "2026-10-31T16:07:58+00:00",
+  "snapshot_finished": "2026-10-31T16:19:08+00:00",
+  "training_cutoff": "2026-10-09T19:32:27+00:00",
+  "model": {
+    "train_challenges": 55,
+    "train_rows": 1893,
+    "train_winners": 323,
+    "train_article_ids_known": true
+  },
+  "model_check": 0.0,
+  "listed": 279,
+  "skipped": {
+    "no_date": 0,
+    "before_opened": 0,
+    "after_deadline": 0,
+    "official": 1,
+    "not_english": 0,
+    "in_training_data": 0,
+    "no_body": 0
+  },
+  "ranked": 278,
+  "ranked_both_tags": 244,
+  "edited_after_deadline": 7,
+  "announced_before_snapshot": null,
+  "announced_by_end_of_snapshot": null,
+  "requests": 293
+}
