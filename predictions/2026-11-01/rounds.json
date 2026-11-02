@@ -1,0 +1,109 @@
+{
+  "snapshot_at": "2026-11-01T15:22:28+00:00",
+  "finished_at": "2026-11-01T16:27:25+00:00",
+  "tag": "hf26challenge",
+  "since": "2026-10-01",
+  "bodies_from": "2026-10-26T07:00:00Z",
+  "announcements_seen": {
+    "week3": {
+      "announcement_id": 4949434,
+      "announced": "2026-10-30T20:35:58Z"
+    },
+    "week2": {
+      "announcement_id": 4907389,
+      "announced": "2026-10-23T20:18:31Z"
+    },
+    "week1": {
+      "announcement_id": 4863823,
+      "announced": "2026-10-16T17:38:26Z"
+    },
+    "weekend": {
+      "announcement_id": 4825130,
+      "announced": "2026-10-09T19:32:27Z"
+    }
+  },
+  "official_posts_skipped": [
+    4779462,
+    4784493,
+    4802245,
+    4825130,
+    4839620,
+    4863823,
+    4879459,
+    4907389,
+    4923705,
+    4949434
+  ],
+  "rounds": {
+    "week4": {
+      "entries": 1545,
+      "bodies": 1545,
+      "ai_levels": {
+        "not_disclosed": 1324,
+        "some_ai": 166,
+        "fully_autonomous": 51,
+        "no_ai": 4
+      }
+    },
+    "none": {
+      "entries": 6,
+      "bodies": 6,
+      "ai_levels": {
+        "not_disclosed": 5,
+        "some_ai": 1
+      }
+    },
+    "week1": {
+      "entries": 1830,
+      "bodies": 11,
+      "ai_levels": {
+        "not_disclosed": 1505,
+        "some_ai": 251,
+        "fully_autonomous": 62,
+        "no_ai": 12
+      }
+    },
+    "weekend": {
+      "entries": 1410,
+      "bodies": 18,
+      "ai_levels": {
+        "not_disclosed": 1135,
+        "some_ai": 223,
+        "fully_autonomous": 38,
+        "no_ai": 14
+      }
+    },
+    "week3": {
+      "entries": 1737,
+      "bodies": 38,
+      "ai_levels": {
+        "not_disclosed": 1461,
+        "some_ai": 187,
+        "fully_autonomous": 83,
+        "no_ai": 6
+      }
+    },
+    "week2": {
+      "entries": 1772,
+      "bodies": 9,
+      "ai_levels": {
+        "not_disclosed": 1487,
+        "some_ai": 205,
+        "fully_autonomous": 71,
+        "no_ai": 9
+      }
+    },
+    "weekend+week1": {
+      "entries": 143,
+      "bodies": 0,
+      "ai_levels": {
+        "not_disclosed": 126,
+        "some_ai": 12,
+        "fully_autonomous": 5
+      }
+    }
+  },
+  "posts": 8443,
+  "requests": 1702,
+  "minutes": 65.0
+}
