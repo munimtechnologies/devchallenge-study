@@ -1,0 +1,527 @@
+{
+ "version": "0.1.0",
+ "alpha": 0.05,
+ "pooled": {
+  "winners": 55,
+  "declared_winners": 20,
+  "expected_declared_winners": 9.144904636539854,
+  "p_one_sided": 0.0003076556786624856,
+  "p1_direction_held": true,
+  "p1_significant": true
+ },
+ "p2": {
+  "gradable": true,
+  "rounds": [
+   "week1",
+   "week2",
+   "week3"
+  ],
+  "fully_autonomous_winners": 7,
+  "expected": 2.3746214886156247,
+  "p_zero_if_random": 0.0870240855692325,
+  "held": false
+ },
+ "live_relabels": [
+  {
+   "round": "week1",
+   "article_id": 4804055,
+   "snapshot": "fully_autonomous",
+   "now": "fully_autonomous",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4832216,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4835485,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4828666,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4833909,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4826844,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4827448,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4834602,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4835874,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4821151,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4835551,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4831526,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4830206,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4834541,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4835552,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4808576,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week1",
+   "article_id": 4804515,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4873633,
+   "snapshot": "fully_autonomous",
+   "now": "fully_autonomous",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4871502,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4852284,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4872772,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4873976,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4870768,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4869614,
+   "snapshot": "fully_autonomous",
+   "now": "fully_autonomous",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4866245,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4871312,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4874416,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4868240,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4872715,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4869625,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4862906,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4866257,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4873424,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4858479,
+   "snapshot": "fully_autonomous",
+   "now": "fully_autonomous",
+   "changed": false
+  },
+  {
+   "round": "week2",
+   "article_id": 4874381,
+   "snapshot": "fully_autonomous",
+   "now": "fully_autonomous",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4919255,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4910363,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4916473,
+   "snapshot": "fully_autonomous",
+   "now": "fully_autonomous",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4917867,
+   "snapshot": "fully_autonomous",
+   "now": "fully_autonomous",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4918742,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4909562,
+   "snapshot": "not_disclosed",
+   "now": "unavailable: HTTPError",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4917746,
+   "snapshot": "not_disclosed",
+   "now": "unavailable: HTTPError",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4908394,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4898344,
+   "snapshot": "some_ai",
+   "now": "unavailable: HTTPError",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4919568,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4889649,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4892006,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4902954,
+   "snapshot": "not_disclosed",
+   "now": "unavailable: HTTPError",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4906950,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4909989,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4895375,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4916929,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4919292,
+   "snapshot": "some_ai",
+   "now": "some_ai",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4908148,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  },
+  {
+   "round": "week3",
+   "article_id": 4909637,
+   "snapshot": "not_disclosed",
+   "now": "not_disclosed",
+   "changed": false
+  }
+ ],
+ "rounds": [
+  {
+   "round": "week1",
+   "field": 1797,
+   "winners_listed": 17,
+   "winners_in_field": 17,
+   "winners_missing_from_field": [],
+   "declared_in_field": 319,
+   "declared_winners": 6,
+   "expected_declared_winners": 3.0178074568725655,
+   "field_share_declared": 0.1775180856983862,
+   "winner_share_declared": 0.35294117647058826,
+   "levels": {
+    "fully_autonomous": {
+     "field": 65,
+     "winners": 1,
+     "expected": 0.6149137451307735,
+     "p_zero_if_random": 0.5330347574996317
+    },
+    "no_ai": {
+     "field": 12,
+     "winners": 0,
+     "expected": 0.11352253756260434,
+     "p_zero_if_random": 0.8918875629969124
+    },
+    "not_disclosed": {
+     "field": 1466,
+     "winners": 11,
+     "expected": 13.86867000556483,
+     "p_zero_if_random": 2.2974464527824945e-13
+    },
+    "some_ai": {
+     "field": 254,
+     "winners": 5,
+     "expected": 2.402893711741792,
+     "p_zero_if_random": 0.0740383527825694
+    }
+   }
+  },
+  {
+   "round": "week2",
+   "field": 1663,
+   "winners_listed": 18,
+   "winners_in_field": 18,
+   "winners_missing_from_field": [],
+   "declared_in_field": 267,
+   "declared_winners": 7,
+   "expected_declared_winners": 2.889957907396272,
+   "field_share_declared": 0.16055321707757064,
+   "winner_share_declared": 0.3888888888888889,
+   "levels": {
+    "fully_autonomous": {
+     "field": 71,
+     "winners": 4,
+     "expected": 0.7684906794948888,
+     "p_zero_if_random": 0.45406686187291806
+    },
+    "no_ai": {
+     "field": 10,
+     "winners": 0,
+     "expected": 0.10823812387251955,
+     "p_zero_if_random": 0.8966179828387614
+    },
+    "not_disclosed": {
+     "field": 1386,
+     "winners": 11,
+     "expected": 15.001803968731208,
+     "p_zero_if_random": 6.075386742688906e-15
+    },
+    "some_ai": {
+     "field": 196,
+     "winners": 3,
+     "expected": 2.121467227901383,
+     "p_zero_if_random": 0.10334819385160546
+    }
+   }
+  },
+  {
+   "round": "week3",
+   "field": 1594,
+   "winners_listed": 20,
+   "winners_in_field": 20,
+   "winners_missing_from_field": [],
+   "declared_in_field": 258,
+   "declared_winners": 7,
+   "expected_declared_winners": 3.2371392722710164,
+   "field_share_declared": 0.1618569636135508,
+   "winner_share_declared": 0.35,
+   "levels": {
+    "fully_autonomous": {
+     "field": 79,
+     "winners": 2,
+     "expected": 0.9912170639899623,
+     "p_zero_if_random": 0.3595540058497681
+    },
+    "no_ai": {
+     "field": 6,
+     "winners": 0,
+     "expected": 0.07528230865746549,
+     "p_zero_if_random": 0.9269288851593099
+    },
+    "not_disclosed": {
+     "field": 1330,
+     "winners": 13,
+     "expected": 16.687578419071517,
+     "p_zero_if_random": 1.2993851197409732e-16
+    },
+    "some_ai": {
+     "field": 179,
+     "winners": 5,
+     "expected": 2.245922208281054,
+     "p_zero_if_random": 0.09094033397817289
+    }
+   }
+  }
+ ]
+}

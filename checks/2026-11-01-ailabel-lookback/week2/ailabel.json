@@ -1,0 +1,63 @@
+{
+ "version": "0.1.0",
+ "alpha": 0.05,
+ "pooled": {
+  "winners": 18,
+  "declared_winners": 7,
+  "expected_declared_winners": 2.889957907396272,
+  "p_one_sided": 0.01643114414127778,
+  "p1_direction_held": true,
+  "p1_significant": true
+ },
+ "p2": {
+  "gradable": true,
+  "rounds": [
+   "week2"
+  ],
+  "fully_autonomous_winners": 4,
+  "expected": 0.7684906794948888,
+  "p_zero_if_random": 0.45406686187291806,
+  "held": false
+ },
+ "live_relabels": null,
+ "rounds": [
+  {
+   "round": "week2",
+   "field": 1663,
+   "winners_listed": 18,
+   "winners_in_field": 18,
+   "winners_missing_from_field": [],
+   "declared_in_field": 267,
+   "declared_winners": 7,
+   "expected_declared_winners": 2.889957907396272,
+   "field_share_declared": 0.16055321707757064,
+   "winner_share_declared": 0.3888888888888889,
+   "levels": {
+    "fully_autonomous": {
+     "field": 71,
+     "winners": 4,
+     "expected": 0.7684906794948888,
+     "p_zero_if_random": 0.45406686187291806
+    },
+    "no_ai": {
+     "field": 10,
+     "winners": 0,
+     "expected": 0.10823812387251955,
+     "p_zero_if_random": 0.8966179828387614
+    },
+    "not_disclosed": {
+     "field": 1386,
+     "winners": 11,
+     "expected": 15.001803968731208,
+     "p_zero_if_random": 6.075386742688906e-15
+    },
+    "some_ai": {
+     "field": 196,
+     "winners": 3,
+     "expected": 2.121467227901383,
+     "p_zero_if_random": 0.10334819385160546
+    }
+   }
+  }
+ ]
+}
