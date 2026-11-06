@@ -49,3 +49,27 @@ and the same for `predictions_kagglechallenge_both_tags.csv`. Winners come from 
 - `entries_kagglechallenge.csv`: every ranked post's measured shape. Article ids only, no usernames.
 - `snapshot.json`: snapshot times, counts, what was left out and why, the model check, and the announcement check.
 - `REPORT.md`: the report the job generated.
+
+## Result (scored 2026-11-06)
+
+DEV announced the winners on 2026-11-05 at 21:12:11 UTC (article 4984085): five winners at $500 each, shown as embedded posts. The sealed job `kaggle-score-v1` ran both scoring commands above unchanged on 2026-11-06 at 04:55 UTC, after all unit tests passed. Its outputs are [score_primary.json](score_primary.json) and [score_both_tags.json](score_both_tags.json).
+
+**Both pre-registered predictions held** (logistic model, primary field, primary winner set = the 5 embedded winners):
+
+| | Prediction | Result | Held? |
+|---|---|---|---|
+| 1 | Mean winner percentile at least 0.70 | **0.910** (winner ranks 2, 7, 29, 35, 56 of 278); chance of 0.910 or more if winners were random: 0.00015 | **held** |
+| 2 | At least one winner in the top 5 | **1** (rank 2); 0.09 expected by chance, chance of at least one: 0.087 | **held** |
+
+Also reported, as set out in advance:
+
+| Field / winner set | Model | Mean winner percentile | Winners in top k |
+|---|---|---|---|
+| Primary, 5 embedded winners | logistic | 0.910 | 1 of 5 |
+| Primary, 5 embedded winners | rank_score baseline | 0.853 | 0 |
+| Primary, 8 linked posts | logistic | 0.861 | 3 of 8 |
+| Secondary (also `devchallenge`, 244 posts), 5 winners | logistic | 0.904 (ranks 2, 7, 28, 32, 53) | 1 of 5 |
+
+The "linked" set is every challenge entry the post links to. It adds three entries that the post shows as examples of the range of submissions, not as winners, so it is not the primary set. The post's embed of a different, open DEV challenge is not a challenge entry and is left out by `oos.resolve_winners`.
+
+What this does and does not show: a model that only reads a post's shape, trained on 55 earlier DEV challenges, placed all five Kaggle winners within its top 56 of 278 entries (about the top fifth). It did this on a challenge it never saw, judged on a criterion it cannot read. Five winners are a small sample, and one hit in the top 5 is weak evidence on its own (p ≈ 0.09). The mean percentile is the stronger result. The model ranks which posts *look like* DEV winners, not which posts are good.

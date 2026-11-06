@@ -1,0 +1,150 @@
+{
+  "version": "0.1.0",
+  "predictions": "predictions_kagglechallenge.csv",
+  "run_at": "2026-11-06T04:55:56+00:00",
+  "status": "scored",
+  "announcement_id": 4984085,
+  "announced": "2026-11-05T21:12:11Z",
+  "winner_ids": {
+    "linked": [
+      4788126,
+      4807226,
+      4798873,
+      4801962,
+      4826583,
+      4769260,
+      4822439,
+      4783452
+    ],
+    "embedded": [
+      4801962,
+      4826583,
+      4769260,
+      4822439,
+      4783452
+    ]
+  },
+  "primary_winner_set": "embedded",
+  "scores": {
+    "primary": {
+      "logistic": {
+        "ranked_entries": 278,
+        "winners_announced": 5,
+        "winners_in_ranking": 5,
+        "missing_from_ranking": [],
+        "hits_top_k": 1,
+        "expected_hits_if_random": 0.09,
+        "mean_winner_percentile": 0.91,
+        "winner_ranks": [
+          2,
+          7,
+          29,
+          35,
+          56
+        ],
+        "p_hits_at_least": 0.08736,
+        "p_mean_percentile_at_least": 0.00015
+      },
+      "rank_score": {
+        "ranked_entries": 278,
+        "winners_announced": 5,
+        "winners_in_ranking": 5,
+        "missing_from_ranking": [],
+        "hits_top_k": 0,
+        "expected_hits_if_random": 0.09,
+        "mean_winner_percentile": 0.853,
+        "winner_ranks": [
+          10,
+          23,
+          46,
+          54,
+          75
+        ],
+        "p_hits_at_least": 1.0,
+        "p_mean_percentile_at_least": 0.001825
+      }
+    },
+    "linked": {
+      "logistic": {
+        "ranked_entries": 278,
+        "winners_announced": 8,
+        "winners_in_ranking": 8,
+        "missing_from_ranking": [],
+        "hits_top_k": 3,
+        "expected_hits_if_random": 0.23,
+        "mean_winner_percentile": 0.861,
+        "winner_ranks": [
+          2,
+          4,
+          7,
+          29,
+          35,
+          42,
+          56,
+          142
+        ],
+        "p_hits_at_least": 0.00083,
+        "p_mean_percentile_at_least": 7.5e-05
+      },
+      "rank_score": {
+        "ranked_entries": 278,
+        "winners_announced": 8,
+        "winners_in_ranking": 8,
+        "missing_from_ranking": [],
+        "hits_top_k": 1,
+        "expected_hits_if_random": 0.23,
+        "mean_winner_percentile": 0.847,
+        "winner_ranks": [
+          1,
+          10,
+          23,
+          46,
+          54,
+          62,
+          75,
+          76
+        ],
+        "p_hits_at_least": 0.21072,
+        "p_mean_percentile_at_least": 0.00014
+      }
+    },
+    "embedded": {
+      "logistic": {
+        "ranked_entries": 278,
+        "winners_announced": 5,
+        "winners_in_ranking": 5,
+        "missing_from_ranking": [],
+        "hits_top_k": 1,
+        "expected_hits_if_random": 0.09,
+        "mean_winner_percentile": 0.91,
+        "winner_ranks": [
+          2,
+          7,
+          29,
+          35,
+          56
+        ],
+        "p_hits_at_least": 0.08736,
+        "p_mean_percentile_at_least": 0.00015
+      },
+      "rank_score": {
+        "ranked_entries": 278,
+        "winners_announced": 5,
+        "winners_in_ranking": 5,
+        "missing_from_ranking": [],
+        "hits_top_k": 0,
+        "expected_hits_if_random": 0.09,
+        "mean_winner_percentile": 0.853,
+        "winner_ranks": [
+          10,
+          23,
+          46,
+          54,
+          75
+        ],
+        "p_hits_at_least": 1.0,
+        "p_mean_percentile_at_least": 0.001825
+      }
+    }
+  }
+}
